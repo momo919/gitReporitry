@@ -1,0 +1,1372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql-full>
+<!--  -->
+<sql key="hdxt_sbzs_pz000376_querdrxx" sql="SELECT *    FROM pz_jc_csh_dr T   WHERE T.SWRY_DM = ?     AND (1 = '#macroparam#' OR T.YXBZ = ?)   ORDER BY T.PZZL_DM, T.PZZG_DM, T.PZQSHM, T.PZZZHM" tables="pz_jc_csh_dr" />
+<!--  -->
+<sql key="common_sbzs000141_getallpzgly" sql="SELECT * FROM pz_pzgly t WHERE t.yxbz = 'Y'" tables="pz_pzgly" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000284_queryqtdzlfd" sql="select *
+  from pz_qtdzlfdzb t
+ where t.zfbz_1 = 'N'
+   and (1 = #macroparam# or t.lqf_dm = ?)" tables="pz_qtdzlfdzb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000276_queryqtdzssbgdmxbyuuid" sql=" select mx.qtdzssbgdmxuuid,
+        mx.qtdzssbgduuid,
+        mx.qtdzjcuuid,
+        mx.ssqtdzzl_dm,
+        mx.qtdzzg_dm,
+        mx.qtdzqshm,
+        mx.qtdzzzhm,
+        mx.sshxsl,
+        mx.kbpbz
+   from pz_qtdzssbgdmx mx
+  where mx.qtdzssbgduuid = ?" tables="pz_qtdzssbgdmx" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000277_queryqtdzsyqkbbyjbdbh" sql="select *  from PZ_ZH_QTDZSYQK t where t.qtdzjbdbh=?" tables="PZ_ZH_QTDZSYQK" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000289_queryqtdzssbgdmxbyxhuuid" sql="select mx.qtdzssbgdmxuuid,
+       mx.qtdzssbgduuid,
+       mx.qtdzjcuuid,
+       mx.ssqtdzzl_dm,
+       mx.qtdzzg_dm,
+       mx.qtdzqshm,
+       mx.qtdzzzhm,
+       mx.sshxsl,
+       mx.qtdzxhsquuid
+  from pz_qtdzssbgdmx mx
+ where mx.qtdzssbgdmxuuid = ?" tables="pz_qtdzssbgdmx" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000367_getyprhdpzzl" sql="SELECT *    FROM PZ_YPRPZHDXXB T   WHERE T.YPRUUID IN (#macroparam#)     AND T.YXBZ = 'Y'" tables="PZ_YPRPZHDXXB" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000371_queryzwcshbyswjgdm" sql="SELECT * FROM pz_zwcs t WHERE t.pzdw_dm = ? AND t.zfbz_1 = 'N'" tables="pz_zwcs" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000320_queryqtdzwwcjb" sql="select b.swryxm ||':'|| a.qtdzjbdbh as dwmc,
+       decode(a.sbbz, 'Y', '已上报，未审批！', '未上报！') as yy
+  from pz_qtdzjbdzb a, dm_gy_swry b
+ where a.jbr_dm_1 = b.swry_dm
+   and a.jbdwr_dm = ?
+   and a.jbrq_1 between to_date(?, 'YYYY-MM-DD HH24:MI:SS') and
+       to_date(?, 'YYYY-MM-DD HH24:MI:SS')
+   and a.zfbz_1 = 'N'
+   and a.sfshtgbz = 'N'
+   and a.cxbz = 'N'" tables="pz_qtdzjbdzb,dm_gy_swry" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000326_queryqtdzgzsshxd" sql="select t.qtdzssbgduuid yspzhm,
+        g.gztzsuuid,
+        t.qtdzssbgdbh yspzbh1,
+        g.gztzsbh,
+        t.tbrq rq,
+        t.lrr_dm fqrxm
+   from pz_qtdzssbgdzb t, pz_qtdzgztzs g
+  where t.zfbz_1 = 'N'
+    and t.qtdzssbgduuid = g.yspzhm
+    and g.sc_tzsuuid is null
+    and g.tybz = 'N'
+    and g.yxbz = 'Y'
+    and g.jsr_dm = ?
+    and g.rq between ? and ?
+    and g.pzyspz_dm = ?" tables="pz_qtdzssbgdzb,pz_qtdzgztzs" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000316_queryqtdzssbgdmxbyqtdzcd" sql="select mx.*
+  from pz_qtdzssbgdzb zb, pz_qtdzssbgdmx mx
+ where zb.qtdzssbgduuid = mx.qtdzssbgduuid
+   and zb.qtdzssbgdbh = ?" tables="pz_qtdzssbgdzb,pz_qtdzssbgdmx" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000283_checkqtdzjbsc" sql="select a.* from pz_qtdzjbsc a where a.qtdzlyruuid = ? and a.pzzy_dm not in (#macroparam#)" tables="pz_qtdzjbsc" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000340_queryqtdzjjzbbylcjk" sql="select zb.qtdzjjbuuid,
+       zb.lcslid,
+       zb.qtdzjjbbh,
+       zb.swjg_dm,
+       zb.bzrq,
+       zb.jzpzzbbbjjqk,
+       zb.jjzczljsl,
+       zb.qtxyjjdzljxysmdwt,
+       zb.jsr_dm,
+       zb.yjr_dm,
+       zb.zfbz_1,
+       zb.jjbz,
+       zb.hsyj,
+       zb.jsrq,
+       zb.fhyj,
+       zb.fhr_dm,
+       zb.fhrq
+  from pz_qtdzjjbzb zb
+ where zb.lcslid = ?
+   and zb.zfbz_1 = 'N'
+   and zb.fhyj = 'N'" tables="pz_qtdzjjbzb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000336_queryqtdzsshxdforgz" sql="select t.qtdzssbgduuid yspzhm,
+	       t.qtdzssbgdbh   yspzbh1,
+	       t.tbrq         tfrq
+	  from pz_qtdzssbgdzb t
+	 where t.lrr_dm = ?
+	   and t.zfbz_1 != 'Y'
+	   and t.hxbz='Y'
+ 		 and t.tbrq between ? and ?  
+     and not exists(select 1 from pz_qtdzgztzs a where t.qtdzssbgduuid=a.yspzhm and a.tybz = 'N' and a.yxbz='Y')
+     and not exists (select 1 from pz_qtdzflz b where b.yspzhm = t.qtdzssbgduuid and b.xhuuid is null and b.tzlx_dm in ('1','2'))" tables="pz_qtdzssbgdzb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000306_querylyrqtdzzlbybh" sql="select * from pz_qtdzjbsc a where a.jzpzbh = ? and a.pzzy_dm = ?" tables="pz_qtdzjbsc" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000329_queryqtdzsshxdzb" sql="select * from pz_qtdzssbgdzb a where a.qtdzssbgduuid = ?" tables="pz_qtdzssbgdzb" />
+<!--  -->
+<sql key="qdxt_sbzs_pz000071_queryqtdzfffdw" sql="SELECT T.YZDWXH AS CODE, T.YZDWMC AS CAPTION, T.YZDWLX_DM
+  FROM CS_PZ_YZDWXX T
+ WHERE T.SWJG_DM IN ( select swjg_dm from(
+      select * from qx_swjg_zns where zn_dm = '05' and yxbz = 'Y' and sjswjg_dm is not null ) pzzns
+       start with pzzns.swjg_dm =?
+      connect by prior pzzns.sjswjg_dm = pzzns.swjg_dm)
+   AND trunc(SYSDATE) BETWEEN trunc(T.YXQSRQ) AND trunc(T.YXZZRQ)" tables="CS_PZ_YZDWXX" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000378_queryyprzwywxx" sql="SELECT *    FROM PZ_JBSC T   WHERE T.YPRUUID = ?     AND T.PZZY_DM &lt;&gt; '01'     AND T.ZFBZ_1 = 'N'" tables="PZ_JBSC" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000337_queryqtdzlfdforgz" sql="select t.qtdzlfduuid yspzhm,
+         t.qtdzlfdbh yspzbh1,
+         t.lrrq      tfrq,
+         lfdlx_dm pzzyDm
+    from Pz_Qtdzlfdzb t
+   where t.lrr_dm = ?
+     and zfbz_1 != 'Y'
+     and lrrq between ? and ? and lfdlx_dm!='5' 
+     and not exists(select 1 from pz_qtdzgztzs a where t.qtdzlfduuid=a.yspzhm and a.tybz = 'N' and a.yxbz='Y')
+     and not exists (select 1 from pz_qtdzflz b where b.yspzhm = t.qtdzlfduuid and b.xhuuid is null and b.tzlx_dm in ('1','2'))" tables="Pz_Qtdzlfdzb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000297_queryqtdzjbscxx" sql="select distinct t.jzxhuuid,
+       t.yspzbh_1,
+       t.tfrq,
+       t.pzzy_dm,
+       t3.pzzwzymc as zy,
+       t2.qtdzzg,
+       t.qtdzqshm pzqshm,
+       t.qtdzzzhm pzzzhm,
+       t.lqs,
+       (nvl(t.kjs,0) + nvl(t.zfs,0)) as hj,
+       t.kjs,
+       t.zfs,
+       t.sshxs,
+       t.jc,
+       t.zl_jc
+  from pz_qtdzjbsc t 
+  inner join dm_pz_pzzwzy t3
+     on t.pzzy_dm = t3.pzzwzy_dm 
+   left join cs_pz_qtdzzgb t2
+     on t.qtdzzg_dm = t2.qtdzzg_dm 
+ where t.tfrq &gt;= to_date(?, 'YYYY-MM-DD hh24:mi:ss') 
+   and t.tfrq &lt;= to_date(?, 'YYYY-MM-DD hh24:mi:ss')
+   and t.qtdzzl_dm=?
+   and t.qtdzlyruuid =? 
+   order by tfrq,t.pzzy_dm,t.jzxhuuid" tables="pz_qtdzjbsc" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000356_getswrydrxx" sql="SELECT *
+  FROM PZ_SSPKJBDDRB T
+ WHERE T.SWRY_DM = ?
+   AND (1 = #macroparam# OR T.YXBZ = ?)
+ ORDER BY T.PZZL_DM, T.PZZG_DM, T.PZQSHM, T.PZZZHM" tables="pz_sspkjbddrb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000368_get_isusedpzzgdm" sql="SELECT JC.PZZG_DM    FROM PZ_JC JC   WHERE JC.PZZT_DM = ?     AND JC.YXBZ = 'Y'     AND JC.PZZL_DM = ?     AND JC.PZZG_DM IN (#macroparam#)  UNION  SELECT CSH.PZZG_DM    FROM PZ_JC_CSH CSH   WHERE CSH.YXBZ = 'Y'     AND CSH.PZZL_DM = ?     AND CSH.PZZG_DM IN (#macroparam#)  " tables="PZ_JC,PZ_JC_CSH" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000399_querypzjcbypzhsjgdm" sql="SELECT *    FROM PZ_JC T   WHERE T.YXBZ = 'Y'     AND T.PZHSJG_DM = ?     AND T.PZZT_DM = ?" tables="PZ_JC" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000403_getypryjdjbmx" sql="select /*+use_concat*/   b.ypruuid, b.yprmc, count(1) as sl    from v_zs_pz_pzsyqk a, pz_ypr b   where decode(b.yprlx_dm, 12, swry_dm, b.djxh) = some(a.sddwdjxh, a.kpr_dm)     and b.yxbz = 'Y'     and a.PZZT_DM in ('02', '03')     and b.pzhsjg_dm = ?     and a.SJXHRQ between to_date(?, 'yyyy-mm-dd hh24:mi:ss') and         to_date(?, 'yyyy-mm-dd hh24:mi:ss')   group by b.ypruuid, b.yprmc" tables="v_zs_pz_pzsyqk,pz_ypr" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000296_queryqtdzflzxx" sql="select distinct t.jzxhuuid,
+                 t.tfrq,
+                 t.qtdzzl_dm,
+                 decode(t.pz_yspz_dm,'06','02',t.pz_yspz_dm) as pz_yspz_dm,
+                 t1.pzyspzmc as mc,
+                 t.yspzbh_1 as yspzhm,
+                 t.pzzy_dm,
+                 t3.pzzwzymc as zy,
+                 t.qtdzzg_dm,
+                 t2.qtdzzg,
+                 t.qsh pzqshm,
+                 t.zzh pzzzhm,
+                 t.rks,
+                 t.fcs,
+                 t.kjs,
+                 t.zfs,
+                 t.sshxs,
+                 nvl(t.bj_jc,0) + nvl(t.ss_jc,0) as hj,
+                 t.bj_jc,
+                 t.zl_bj_jc,
+                 t.ss_jc,
+                 t.zl_ss_jc
+   from pz_qtdzflz t 
+  left join dm_pz_pzyspz t1
+     on t.pz_yspz_dm = t1.pzyspz_dm
+  inner join dm_pz_pzzwzy t3
+     on t.pzzy_dm = t3.pzzwzy_dm 
+   left join cs_pz_qtdzzgb t2
+     on t.qtdzzg_dm = t2.qtdzzg_dm
+  where t.tfrq &gt;= to_date(?, 'YYYY-MM-DD hh24:mi:ss') 
+    and t.tfrq &lt;= to_date(?, 'YYYY-MM-DD hh24:mi:ss')
+    and t.qtdzzl_dm =?
+    and t.pzdw_dm=? 
+   order by tfrq,t.pzzy_dm,t.jzxhuuid" tables="pz_qtdzflz" />
+<!--  -->
+<sql key="pub_gggl000428_getqtdzpzzg" sql="select *
+  from cs_pz_qtdzzgb t
+ where t.swjg_dm = ?
+   and t.qtdzzl_dm = ?
+   and sysdate between t.yxqsrq and t.yxzzrq
+" tables="cs_pz_qtdzzgb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000286_queryqtdzjhs" sql="SELECT *
+  FROM PZ_QTDZHZJHZB A
+ WHERE A.TBSWJG_DM IN (#macroparam#)
+   AND A.PZJHZL_DM = ?
+   AND A.JHNYQ = ?
+   AND A.JHNYZ = ?
+   AND (1 = #macroparam# OR SBBZ = ?)
+   AND (1 = #macroparam# OR HZBZ_1 = ?)
+   AND (1 = #macroparam# OR JHLX_DM = ?)
+   AND (1 = #macroparam# OR SJHZJHUUID = ?)" tables="PZ_QTDZHZJHZB" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000267_queryqtdzjbrqq" sql="SELECT TO_CHAR(MAX(T.JBRQ_1 + NUMTODSINTERVAL(1, 'SECOND')),
+                'yyyy-MM-dd HH24:mi:ss') 
+  FROM PZ_QTDZJBDZB T
+ WHERE T.SFSHTGBZ = 'Y'
+   AND T.ZFBZ_1 = 'N'
+   and t.cxbz= 'N'
+   AND T.Jbr_Dm_1= ?" tables="PZ_QTDZJBDZB" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000397_queryjbscwxyprpzzl" sql="select distinct t.pzzl_dm from pz_jbsc t where t.ypruuid = ? and t.zfbz_1 ='N'" tables="pz_jbsc" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000288_queryqtdzjhzbbyuuid" sql="SELECT * FROM PZ_QTDZHZJHZB T WHERE T.QTDZHZJHUUID = ?" tables="PZ_QTDZHZJHZB" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000380_queryallpzgly" sql="SELECT * FROM PZ_PZGLY T WHERE T.YXBZ = 'Y'" tables="PZ_PZGLY" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000387_querysddwjks" sql="SELECT T.PZZL_DM, T.PZZG_DM, T.PZQSHM, T.PZZZHM    FROM V_ZS_PZ_PZSYQK T   WHERE T.SJXHRQ BETWEEN TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS') AND         TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS')     AND T.SDDWDJXH = ?     AND T.PZZT_DM IN ('02', '03')     AND EXISTS (SELECT 1            FROM DM_PZ_PZZL T2           WHERE T2.SJPZZL_DM = '000001010'             AND T2.PZZL_DM = T.PZZL_DM)     AND NOT EXISTS   (SELECT *            FROM PZ_SSPZJBWXZQD T1           WHERE T1.PZSYQKUUID = T.PZSYQKUUID             AND T1.YPRUUID = ?)     AND (1 = #macroparam# OR T.PZZL_DM = ?)     AND (1 = #macroparam# OR T.PZZG_DM = ?)     AND (1 = #macroparam# OR TO_NUMBER(T.PZQSHM) &gt;= TO_NUMBER(?))     AND (1 = #macroparam# OR TO_NUMBER(T.PZZZHM) &lt;= TO_NUMBER(?))   ORDER BY T.PZZL_DM, T.PZZG_DM" tables="V_ZS_PZ_PZSYQK,PZ_SSPZJBWXZQD,DM_PZ_PZZL" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000260_queryqtdzjcbyuuidandpzztdm" sql=" select jc.qtdzjcuuid,
+        jc.qtdzhsjg_dm,
+        jc.czyuuid,
+        jc.yprlx_dm,
+        jc.qtdzzl_dm,
+        jc.qtdzzg_dm,
+        jc.qtdzqshm,
+        jc.qtdzzzhm,
+        jc.jcsl,
+        jc.rkrq,
+        jc.ffyxj,
+        jc.qtdzdjbz,
+        jc.pzzt_dm
+   from pz_qtdzjc jc
+  where jc.qtdzdjbz = 'N' #macroparam#
+  order by jc.qtdzzl_dm,
+           jc.qtdzzg_dm,
+           jc.ffyxj     desc,
+           jc.rkrq      asc,
+           jc.qtdzqshm  asc" tables="pz_qtdzjc" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000385_queryyprbkjbpz" sql="SELECT T.PZSYQKUUID,         T.PZZL_DM,         T.PZZG_DM,         T.PZQSHM,         T.PZZZHM,         T.PZZT_DM,         T.PZSL,         T.KJZFSL,         T.SKJE,         T.TFRQ,         T.SJXHRQ    FROM V_ZS_PZ_PZSYQK T   WHERE (T.SDDWDJXH = ? OR T.KPR_DM = ?)     AND (T.PZZT_DM IS NULL OR T.PZZT_DM NOT IN ('02', '03'))     AND #macroparam#     AND (1 = #macroparam# OR T.PZZL_DM = ?)     AND (1 = #macroparam# OR T.PZZG_DM = ?)     AND (1 = #macroparam# OR TO_NUMBER(T.PZQSHM) &gt;= TO_NUMBER(?))     AND (1 = #macroparam# OR TO_NUMBER(T.PZZZHM) &lt;= TO_NUMBER(?))   ORDER BY T.SJXHRQ ASC, T.PZZL_DM, T.PZZG_DM, PZQSHM, PZZZHM" tables="V_ZS_PZ_PZSYQK" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000370_getcshssjc" sql="WITH ssJC AS (    SELECT '' AS kid,t.pzzl_dm, t.bj_jc + t.ss_jc as ss_jc    FROM pz_flz t   WHERE t.pzzy_dm = ?     AND t.zfbz_1 = 'N'     AND t.pzdw_dm IN (#macroparam#)  UNION ALL   SELECT m.ypruuid AS kid,m.pzzl_dm, m.jc AS ss_jc    FROM pz_jbsc m   WHERE m.pzzy_dm = ?     AND m.zfbz_1 = 'N'     AND m.ypruuid IN (#macroparam#)   )    SELECT pzzl_dm, SUM(ss_jc) AS ss_jc FROM ssjc GROUP BY (pzzl_dm)" tables="pz_flz,pz_jbsc" />
+<!--  -->
+<sql key="common_sbzs000104_getpzglybypzhsjgdm" sql="SELECT *    FROM PZ_PZGLY T   WHERE T.PZHSJG_DM = ?     AND T.YXBZ = 'Y'  " tables="PZ_PZGLY" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000377_queryzwcsh" sql="SELECT *    FROM PZ_ZWCS T   WHERE T.PZDW_DM = ?     AND T.ZFBZ_1 = 'N'" tables="PZ_ZWCS" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000401_querydqyjrq" sql="select t.jzrq from pz_zwcs t where t.pzdw_dm = ? and t.zfbz_1 = 'N'" tables="pz_zwcs" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000381_querysddwbydjxh" sql="SELECT *    FROM PZ_YPR T   WHERE T.YXBZ = 'Y'     AND T.DJXH = ?  " tables="PZ_YPR" />
+<!--  -->
+<sql key="dycs_sbzs_pz000001_cxpzjccshxx" sql="SELECT t.pzzl_dm, t.pzzg_dm, t.pzqshm, t.pzzzhm, t.jcsl FROM pz_jc_csh t WHERE t.czyuuid = ? ORDER BY lrrq ASC" tables="pz_jc_csh" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000302_zfqueryqtdzflz" sql="select * from pz_qtdzflz a where a.pzdw_dm = ? and a.jzpzbh = ? and a.pzzy_dm in (#macroparam#)" tables="pz_qtdzflz" />
+<!--  -->
+<sql key="common_sbzs000126_getpzglyvobyswrydm" sql="SELECT A.*    FROM PZ_PZGLY A, DM_QX_SWRYSF B   WHERE A.PZHSJG_DM = B.SFSWJG_DM     AND A.PZGLY_DM = ?     AND B.SWRYSF_DM = ?     AND A.YXBZ = 'Y'" tables="PZ_PZGLY,DM_QX_SWRYSF" />
+<!--  -->
+<sql key="qdxt_sbzs_pz000077_getsptjbyjgzl" sql="SELECT *
+  FROM CS_PZ_SSPZSPTJWH T
+ WHERE T.SWJG_DM = ?
+   AND (1 = ? OR T.PZZL_DM = ?)" tables="CS_PZ_SSPZSPTJWH" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000317_queryqtdzjbdmxbyqtdzcd" sql="select mx.*
+  from pz_qtdzjbdzb zb, pz_qtdzjbdmx mx
+ where zb.qtdzjbduuid = mx.qtdzjbduuid
+   and zb.qtdzjbdbh = ?" tables="pz_qtdzjbdzb,pz_qtdzjbdmx" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000270_queryqtdzjbdmx" sql="select * from pz_qtdzjbdmx t where t.qtdzjbduuid = ?" tables="pz_qtdzjbdmx" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000271_queryqcrk" sql="select * from pz_qtdzjc_csh t where t.czyuuid = ? and t.yxbz = 'Y'" tables="pz_qtdzjc_csh" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000347_getgztzszfgdxxbypzzlandrq" sql="SELECT T.GZTZSUUID as pzgdmxuuid,
+              T.GZTZSBH   AS pzhmq,
+              T.GZTZSBH   AS pzhmz
+         FROM pz_qtdzgztzs T
+        WHERE  T.Yxbz = 'Y'
+          AND T.TYBZ = 'Y'
+          AND t.FQPZDW_DM = ?
+	#macroparam#
+           ORDER BY T.GZTZSBH" tables="pz_qtdzgztzs" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000341_queryqtdzxhzbbylcjk" sql="select zb.qtdzxhsquuid,
+       zb.qtdzxhqcbbh,
+       zb.tbdw_dm,
+       zb.tbr_dm,
+       zb.tbrq,
+       zb.xhjgyj,
+       zb.xhsr,
+       zb.xhzr,
+       zb.spyjsm,
+       zb.pzxhyy_dm,
+       zb.xhswjg_dm,
+       zb.dwfzr_dm,
+       zb.xhqk,
+       zb.xhr_dm_1,
+       zb.jhr,
+       zb.zstybz,
+       zb.zsrq_3,
+       zb.zsr_dm,
+       zb.xhsm,
+       zb.lcslid
+  from pz_qtdzxhsqzb zb
+ where zb.lcslid = ?
+   and zb.zfbz_1 = 'N'
+   and zb.zstybz = 'N'" tables="pz_qtdzxhsqzb" />
+<!--  -->
+<sql key="common_sbzs000125_getpzzg" sql="SELECT T.PZZG_DM    FROM CS_PZ_PZZGB T   WHERE T.SWJG_DM IN (#macroparam#)     AND SYSDATE BETWEEN T.YXQSRQ AND T.YXZZRQ" tables="CS_PZ_PZZGB" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000328_queryqtdzjbdzb" sql="select * from pz_qtdzjbdzb a where a.qtdzjbduuid =?" tables="pz_qtdzjbdzb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000310_cxqtdzjbscnjxx" sql="select a.*
+  from pz_qtdzjbsc a, pz_qtdzjbscjzxx b
+ where b.pzdw_dm = ?
+   and b.nd = ?
+   and b.yf is null
+   and b.jzpzbh = a.jzpzbh
+   and a.pzzy_dm = ?" tables="pz_qtdzjbsc,pz_qtdzjbscjzxx" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000261_queryqtdzyjrq" sql="select * from Pz_Qtdzyjrqszb where qtdzhsjg_dm = ? and yjrqnd=?" tables="Pz_Qtdzyjrqszb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000391_querypdmx" sql="SELECT * FROM PZ_SSPZPDBGMXB T WHERE T.PZPDBGUUID = ?" tables="PZ_SSPZPDBGMXB" />
+<!--  -->
+<sql key="common_sbzs000131_getallyprvobyswrydmandpzhsjgdm" sql="SELECT T.*    FROM PZ_YPR T   WHERE T.SWRY_DM = ?     AND T.PZHSJG_DM = ?     AND T.YXBZ = 'Y'" tables="PZ_YPR" />
+<!--  -->
+<sql key="qdxt_sbzs_pz000073_queryqtdzzgbyqtdzzldm" sql="select zg.qtdzzl_dm,
+       zg.qtdzzg_dm,
+       zg.qtdzzg,
+       zg.qtdzzg_dm as code,
+       zg.qtdzzg    as caption
+  from CS_PZ_QTDZZGB zg
+ where zg.qtdzzl_dm = ?
+   and zg.swjg_dm like ?" tables="CS_PZ_QTDZZGB" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000304_zfqueryqtdzjbsc" sql="select * from pz_qtdzjbsc a where a.qtdzlyruuid = ? and a.jzpzbh = ? and a.pzzy_dm in (#macroparam#) " tables="pz_qtdzjbsc" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000393_queryjbscjzxxwxypr" sql="SELECT DISTINCT T.PZDW_DM AS YPRUUID, T1.YPRLX_DM, T1.YPRMC, T1.DJXH, T1.SWRY_DM    FROM PZ_JBSCJZXX T, PZ_YPR T1   WHERE T1.YPRUUID = T.PZDW_DM     AND T.ZFBZ_1 = 'N'     AND T.ND = ?     AND T.YF = ?     AND T1.YXBZ != 'Y'     AND T1.PZHSJG_DM = ?     AND EXISTS (SELECT 1            FROM PZ_ZWCS A           WHERE A.PZDW_DM = T.PZDW_DM             AND A.CSHRQ IS NOT NULL             AND A.ZFBZ_1 = 'N')" tables="PZ_JBSCJZXX,PZ_YPR" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000262_getqtdzjzyfbynd" sql="select max(yf) yf 
+from pz_qtdzzwcs
+where nd = ? and sjgsdq like ?" tables="pz_qtdzzwcs" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000278_querycshrq" sql="SELECT MAX(CSHRQ)    FROM PZ_ZWCS A   WHERE A.ZFBZ_1 = 'N'     AND A.PZDW_DM IN (#macroparam#)" tables="pz_zwcs" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000292_queryqtdzssbgdmxbyxhsquuid" sql="select mx.qtdzssbgdmxuuid,
+       mx.qtdzssbgduuid,
+       mx.qtdzjcuuid,
+       mx.ssqtdzzl_dm,
+       mx.qtdzzg_dm,
+       mx.qtdzqshm,
+       mx.qtdzzzhm,
+       mx.sshxsl,
+       mx.qtdzxhsquuid
+  from pz_qtdzssbgdmx mx
+ where mx.qtdzxhsquuid = ?" tables="pz_qtdzssbgdmx" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000280_queryqchjbypzzl" sql="select qtdzzl_dm ,sum(jcsl) as bj_jc,'01' as pzzy_dm,'0' as ss_jc, sum(jcsl) as hj
+ from pz_qtdzjc_csh where czyuuid in (#macroparam#)  and yxbz = 'Y'
+group by qtdzzl_dm" tables="pz_qtdzjc_csh" />
+<!--  -->
+<sql key="pub_gggl000588_getallpzsptj" sql="SELECT T.PZZL_DM,
+       T.SSPZJKTJWHSJUUID,
+       T.SWJG_DM,
+       T.XHZSSWJG,
+       T.SSHXZSSWJG,
+       T.PZPLZSSWJG
+  FROM CS_PZ_SSPZSPTJWH T
+ WHERE T.SWJG_DM = ?
+UNION
+SELECT DISTINCT JGZL.PZZL_DM,
+                NULL         AS SSPZJKTJWHSJUUID,
+                NULL         AS SWJG_DM,
+                NULL         AS XHZSSWJG,
+                NULL         AS SSHXZSSWJG,
+                NULL         AS PZPLZSSWJG
+  FROM CS_PZ_SWJGDYPZZL JGZL
+ WHERE JGZL.PZZL_DM NOT IN
+       (SELECT PZZL_DM FROM CS_PZ_SSPZSPTJWH WHERE SWJG_DM = ?)" tables="CS_PZ_SSPZSPTJWH,CS_PZ_SWJGDYPZZL" />
+<!--  -->
+<sql key="qdxt_sbzs_pz000075_getyxqpzzgbyxh" sql="select zg.pzzg_dm, zg.pzzg, zg.pzzg_dm code, zg.pzzg caption
+   from cs_pz_pzzgb zg
+  where sysdate between zg.yxqsrq and zg.yxzzrq
+    and zg.swjg_dm = ? #macroparam#" tables="cs_pz_pzzgb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000372_querypzjbscjzxx" sql="SELECT * FROM pz_jbscjzxx t WHERE t.zfbz_1 = 'N' AND t.pzdw_dm = ? AND t.nd = ? AND t.yf = ?" tables="pz_jbscjzxx" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000339_queryqtdzgztzsmxbyqtdzcd" sql="select a.*, b.*
+  from (select mx.sxlx as yssxlx,
+               mx.qtdzzl_dm,
+               mx.qtdzzg_dm,
+               mx.qtdzqshm,
+               mx.qtdzzzhm,
+               mx.pzsl,
+               mx.pzzt_dm
+          from pz_qtdzgztzs zb, pz_qtdzgztzs_mx mx
+         where zb.gztzsuuid = mx.gztzsuuid
+           and mx.sxlx = '1'
+           and zb.gztzsbh = ?) a,
+       (select mx.sxlx      ,
+               mx.qtdzzl_dm as ysqtdzzl_dm,
+               mx.qtdzzg_dm as ysqtdzzg_dm,
+               mx.qtdzqshm  as ysqtdzqshm,
+               mx.qtdzzzhm  as ysqtdzzzhm,
+               mx.pzsl      as yspzsl,
+               mx.pzzt_dm   as yspzzt_dm
+          from pz_qtdzgztzs zb, pz_qtdzgztzs_mx mx
+         where zb.gztzsuuid = mx.gztzsuuid
+           and mx.sxlx = '2'
+           and zb.gztzsbh = ?) b" tables="pz_qtdzgztzs,pz_qtdzgztzs_mx" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000345_getjbdzfgdxxbypzzlandrq" sql="SELECT T.Qtdzjbduuid as pzgdmxuuid,
+             T.Qtdzjbdbh   AS pzhmq,
+             T.Qtdzjbdbh   AS pzhmz
+        FROM pz_qtdzjbdzb T
+       WHERE  T.Cxbz = 'N'
+         AND T.Jbdwr_Dm = ?
+         AND T.Sfshtgbz = 'Y'
+         AND T.Sbbz = 'Y'
+         and t.zfbz_1 = 'N'
+        #macroparam#
+       ORDER BY T.Qtdzjbdbh" tables="pz_qtdzjbdzb" />
+<!--  -->
+<sql key="qdxt_sbzs_pz000070_queryqtdzcshrq" sql="select min(cshrq) from pz_qtdzzwcs a where a.qtdzjzdw in (
+select b.qtdzlyruuid czy from pz_qtdzlyr b where b.qtdzhsjg_dm = ?
+union
+select c.swjg_dm czy from qx_swjg_zns c where c.sjswjg_dm = ?
+and c.zn_dm = ? and exists ( select 1 from pz_qtdzgly t where t.qtdzhsjg_dm=c.swjg_dm)
+) and a.zfbz_1='N'" tables="pz_qtdzzwcs" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000389_queryallpzsyqkuuid" sql="SELECT T.PZSYQKUUID    FROM V_ZS_PZ_PZSYQK T   WHERE T.SJXHRQ BETWEEN TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS') AND         TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS')     AND (T.SDDWDJXH = ? OR T.KPR_DM = ?)     AND T.PZZT_DM IN ('02', '03')     AND #macroparam#     AND (1 = #macroparam# OR T.PZZL_DM = ?)     AND (1 = #macroparam# OR T.PZZG_DM = ?)     AND (1 = #macroparam# OR TO_NUMBER(T.PZQSHM) &gt;= TO_NUMBER(?))     AND (1 = #macroparam# OR TO_NUMBER(T.PZZZHM) &lt;= TO_NUMBER(?))   ORDER BY T.SJXHRQ ASC, T.PZZL_DM, T.PZZG_DM, PZQSHM, PZZZHM" tables="V_ZS_PZ_PZSYQK" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000366_getpzhsjgypr" sql="SELECT T.*    FROM PZ_YPR T   WHERE T.PZHSJG_DM IN (#macroparam#)     AND T.YXBZ = 'Y'" tables="PZ_YPR" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000390_querypdxx" sql="SELECT *    FROM PZ_SSPZPDBGZB T   WHERE (1 = #macroparam# OR T.PZPDBGBH = ?)     AND (1 = #macroparam# OR T.BPDDW_DM = ?)     AND (1 = #macroparam# OR T.PDRQ &gt;= TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS'))     AND (1 = #macroparam# OR T.PDRQ &lt;= TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS'))" tables="PZ_SSPZPDBGZB" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000319_queryqtdzjbscnj" sql="select * from pz_qtdzjbscjzxx a where a.pzdw_dm = ? and a.nd = ? and a.yf is null" tables="pz_qtdzjbscjzxx" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000344_getlfdzfgdxxbypzzlandrq" sql="SELECT T.QTDZLFDUUID as pzgdmxuuid,
+       T.Qtdzlfdbh AS pzhmq,
+       T.Qtdzlfdbh AS pzhmz
+  FROM pz_qtdzlfdzb T
+ WHERE (T.Lqf_Dm = ? OR
+       T.Lqf_Dm in (SELECT W.QTDZLYRUUID FROM pz_qtdzlyr W WHERE W.Qtdzhsjg_Dm = ?))
+   AND T.Zfbz_1 = 'N'
+     #macroparam#
+   ORDER BY T.Qtdzlfdbh" tables="pz_qtdzlfdzb" />
+<!--  -->
+<sql key="common_sbzs000150_getdsrwpzsize" sql="SELECT distinct T.SKSSSWJG_DM, T.PZHSJG_DM    FROM CS_PZ_DSRWPZB T   WHERE T.XYBZ = 'Y'     AND T.YXBZ = 'Y'     AND T.DSRWPZ_DM = ?" tables="CS_PZ_DSRWPZB" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000343_querypzjjzbbylcjk" sql="select *
+  from pz_sspzjjb zb
+ where zb.lcslid = ?
+   and zb.zfbz_1='N'
+   and zb.fhyj is null" tables="pz_sspzjjb" />
+<!--  -->
+<sql key="common_sbzs000072_queryqtdzlyrzlzg" sql="SELECT ZL.QTDZZL_DM AS CODE,
+       ZL.QTDZZLMC AS CAPTION,
+       '' AS PCODE,
+       ZL.WHPBZ,
+       ZL.WBPZBZ,
+       ZL.PHCD,
+       ZL.WZGBZ
+  FROM DM_PZ_QTDZZL ZL
+ WHERE ZL.QTDZZL_DM IN (#macroparam#)
+UNION ALL
+SELECT ZG.QTDZZG_DM AS CODE,
+       ZG.QTDZZG AS CAPTION,
+       ZG.QTDZZL_DM AS PCODE,
+       '' AS WHPBZ,
+       '' AS WBPZBZ,
+       0 AS PHCD,
+       '' AS WZGBZ
+  FROM CS_PZ_QTDZZGB ZG
+ WHERE ZG.QTDZZL_DM IN (#macroparam#) 
+ and Sysdate between ZG.Yxqsrq and nvl(ZG.Yxzzrq, to_Date('9999-12-31', 'yyyy-mm-dd'))
+ and zg.swjg_dm like ?" tables="DM_PZ_QTDZZL,CS_PZ_QTDZZGB" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000291_qtdzjbscssphpzzl" sql="select distinct a.qtdzzl_dm,c.qtdzzlmc
+             from pz_qtdzjbsc a, pz_qtdzjbscjzxx b,dm_pz_qtdzzl c
+            where a.pzzy_dm = '12'
+              and a.xhuuid = b.xhuuid
+              and b.pzdw_dm = ?
+              and b.nd = ?
+              and b.yf = ?
+              and a.qtdzzl_dm = c.qtdzzl_dm
+              order by a.qtdzzl_dm" tables="pz_qtdzjbsc,pz_qtdzjbscjzxx,dm_pz_qtdzzl" />
+<!--  -->
+<sql key="pub_gggl000651_getpzznallbjandxjjgdm" sql="SELECT DISTINCT T.SWJG_DM    FROM QX_SWJG_ZNS T   WHERE T.ZN_DM = ?     AND T.YXBZ = 'Y'   START WITH T.SWJG_DM = ?          AND T.ZN_DM = ?          AND T.YXBZ = 'Y'  CONNECT BY PRIOR T.SWJG_DM = T.SJSWJG_DM         AND T.ZN_DM = ?         AND T.YXBZ = 'Y'  " tables="QX_SWJG_ZNS" />
+<!--  -->
+<sql key="common_sbzs000151_queryallpzxlbysjpzzldm" sql="select pzzl_dm,pzzlmc from dm_pz_pzzl t where  t.sjpzzl_dm = ? and t.yxbz = 'Y' and t.xybz = 'Y' and t.pzxlbz = 'Y'" tables="dm_pz_pzzl" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000322_checkissshx" sql="select mx.*
+  from pz_sspzssbgdmxb mx, pz_sspzssbgdzb zb
+ where zb.pzssbgduuid = mx.pzssbgduuid
+   and zb.zfbz_1 = 'N'
+   and mx.pzzl_dm = ? 
+   and (1 = #macroparam# or mx.pzzg_dm = ?)
+   and mx.pzqshm &lt;?
+   and mx.pzzzhm &gt;?
+   " tables="pz_sspzssbgdmxb,pz_sspzssbgdzb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000305_queryqtdzzlbybh" sql="select * from pz_qtdzflz a where a.jzpzbh = ? and a.pzzy_dm = ?" tables="pz_qtdzflz" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000314_queryqtdzjbdzbbyqtdzcd" sql="select *
+  from pz_qtdzjbdzb t
+ where   t.zfbz_1 = 'N'
+      and t.sfshtgbz = 'Y'
+      and t.cxbz = 'N'
+      and (1 = #macroparam# or t.jbdwr_dm = ?)
+      and (1 = #macroparam# or t.qtdzjbdbh = ?)
+      and (1 = #macroparam# or t.jbrq_1 &gt;=to_Date(?, 'yyyy-mm-dd HH24:mi:ss'))
+      and (1 = #macroparam# or t.jbrq_1 &lt;=to_Date(?, 'yyyy-mm-dd HH24:mi:ss'))" tables="pz_qtdzjbdzb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000333_queryqtdzsshxmxforgz" sql="select t.qtdzssbgdmxuuid yspzmxhm,
+	       t.ssqtdzzl_dm qtdzzl_dm,
+	       t.qtdzzg_dm,
+	       t.sshxsl        jc,
+	       t.qtdzqshm,
+	       t.qtdzzzhm
+	  from pz_qtdzssbgdmx t
+	 where t.qtdzssbgduuid = ?" tables="pz_qtdzssbgdmx" />
+<!--  -->
+<sql key="common_sbzs000102_getpzglybyuuid" sql="SELECT *
+  FROM PZ_PZGLY G
+ WHERE G.PZGLYUUID = ?
+   AND SYSDATE BETWEEN G.PZHSJGYXQSRQ AND G.PZHSJGYXZZRQ" tables="PZ_PZGLY" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000266_queryisqtdzjj" sql="select zb.swjg_dm, zb.jsr_dm, zb.yjr_dm
+  from pz_qtdzjjbzb zb
+ where zb.zfbz_1 = 'N'
+   and zb.fhyj = 'N'
+   and zb.swjg_dm = ?" tables="pz_qtdzjjbzb" />
+<!--  -->
+<sql key="qdxt_sbzs_pz000076_getcspzjbjx" sql="SELECT * FROM CS_PZ_JBJXPZB t" tables="CS_PZ_JBJXPZB" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000351_querypzglyjjbforysdjcd" sql="select t.pzjjbuuid pzuuid,t.sspzjjbbh pzbh,t.swjg_dm sqdwmc,t.yjr_dm,t.jgr_dm,t.jjr_dm,t.jjrq rq,t.jzpzzbbbjjqk,t.qtxyjjdzljxysmdwt,t.jjzczljsl from pz_sspzjjb t
+     where (1 = ? or t.sspzjjbbh = ?)
+       and (1 = ? or swjg_dm = ?)
+       and trunc(jjrq) between ? and ?
+       and t.zfbz_1='N'
+       and t.fhyj='Y'
+       order by t.sspzjjbbh Asc" tables="pz_sspzjjb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000268_querylfrkrqq" sql="   
+   SELECT TO_CHAR(MIN(T.RKRQ + NUMTODSINTERVAL(1, 'SECOND')),
+                'yyyy-MM-dd HH24:mi:ss')
+  FROM PZ_QTDZLFDZB T
+ WHERE T.LQF_DM =?" tables="PZ_QTDZLFDZB" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000300_queryqtdzjbscbymxhm" sql="select *
+  from pz_qtdzjbsc a
+ where a.yspzhm = ?
+   and a.yspzmxhm = ?
+   and a.tzlx_dm in (#macroparam#)" tables="pz_qtdzjbsc" />
+<!--  -->
+<sql key="common_sbzs000068_queryqtdzglyselect" sql="select distinct swry.swry_dm code,swry.swryxm caption
+  from QX_JGGW_SWRYSF gwsf, qx_swjg_gw swjg, dm_qx_swrysf sf,dm_gy_swry swry
+  left join PZ_QTDZLYR lyr on swry.swry_dm = lyr.qtdzlyr_dm
+ where gwsf.gwxh = swjg.gwxh
+   and sf.swrysf_dm = gwsf.swrysf_dm
+   and sf.swry_dm = swry.swry_dm
+   and (lyr.qtdzlyr_dm is null or  not sysdate between lyr.yxqsrq and lyr.yxzzrq)   and sf.yxbz = 'Y'
+   and swjg.yxbz = 'Y'
+   and gwsf.yxbz = 'Y'
+   and swry.yxbz = 'Y'
+   and swjg.swjg_dm = ?" tables="QX_JGGW_SWRYSF,PZ_QTDZLYR" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000294_queryqtdzxhsqzbbylcslid" sql="select zb.qtdzxhsquuid,
+       zb.qtdzxhqcbbh,
+       zb.tbdw_dm,
+       zb.tbr_dm,
+       zb.tbrq,
+       zb.xhjgyj,
+       zb.xhsr,
+       zb.xhzr,
+       zb.spyjsm,
+       zb.pzxhyy_dm,
+       zb.xhswjg_dm,
+       zb.dwfzr_dm,
+       zb.xhqk,
+       zb.xhr_dm_1,
+       zb.jhr,
+       zb.zstybz,
+       zb.zsrq_3,
+       zb.zsr_dm,
+       zb.xhsm,
+       zb.lcslid
+  from pz_qtdzxhsqzb zb
+ where zb.lcslid = ?" tables="pz_qtdzxhsqzb" />
+<!--  -->
+<sql key="common_sbzs000074_queryqtdzgly" sql="select t.* from pz_qtdzgly t where t.yxbz='Y' and t.qtdzglyuuid=?" tables="pz_qtdzgly" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000355_queryzbpzzg" sql="select distinct a.pzzg_dm, b.pzzg
+  from pz_flz a, cs_pz_pzzgb b
+ where a.zfbz_1 = 'N'
+   and a.pzzl_dm = ?
+   and a.pzzg_dm = b.pzzg_dm
+   and a.tfrq between to_date(?, 'yyyy-mm-dd hh24:mi:ss') and to_date(?, 'yyyy-mm-dd hh24:mi:ss')
+   union 
+select distinct a.pzzg_dm, b.pzzg
+  from pz_jbsc a, cs_pz_pzzgb b
+ where a.zfbz_1 = 'N'
+   and a.pzzl_dm = ?
+   and a.pzzg_dm = b.pzzg_dm
+   and a.tfrq between to_date(?, 'yyyy-mm-dd hh24:mi:ss') and to_date(?, 'yyyy-mm-dd hh24:mi:ss')" tables="pz_flz,cs_pz_pzzgb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000281_querqtdzjzrq" sql="select a.qtdzyjrq from pz_qtdzyjrqszb a where a.qtdzhsjg_dm like ? and yjrqnd = ? and yjrqyf = ?" tables="pz_qtdzyjrqszb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000254_queryyhpjcbyczyuuid" sql="select jc.*
+  from pz_jc jc
+ where jc.czyuuid = ?
+   and jc.pzzt_dm = '01'
+   and jc.yxbz = 'Y'
+   and jc.pzzl_dm like '00000401%'" tables="pz_jc" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000285_queryqtdzxhmxbyssbgd" sql="                     
+select mx.qtdzssbgdmxuuid,
+       mx.qtdzssbgduuid,
+       mx.qtdzjcuuid,
+       mx.ssqtdzzl_dm,
+       mx.qtdzzg_dm,
+       mx.qtdzqshm,
+       mx.qtdzzzhm,
+       mx.sshxsl,
+       mx.qtdzxhsquuid
+  from pz_qtdzssbgdmx mx, pz_qtdzssbgdzb zb
+ where mx.qtdzssbgduuid = zb.qtdzssbgduuid
+   and zb.hxbz = 'Y'
+   and mx.qtdzxhsquuid is null
+   and zb.tbrq &gt;= to_Date(?, 'yyyy-mm-dd HH24:mi:ss')
+   and zb.tbrq &lt;= to_Date(?, 'yyyy-mm-dd HH24:mi:ss') 
+   and zb.sqdw_dm in (SELECT SWJG_DM
+    FROM DM_GY_SWJG
+   START WITH SWJG_DM = ?
+  CONNECT BY PRIOR SJSWJG_DM = SWJG_DM)
+" tables="pz_qtdzssbgdmx,pz_qtdzssbgdzb,DM_GY_SWJG" />
+<!--  -->
+<sql key="common_sbzs000148_getyprbyhsjmdm" sql="SELECT T.*    FROM PZ_YPR T   WHERE T.PZHSJG_DM = ?     AND T.YXBZ = ?" tables="PZ_YPR" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000274_queryqtdzsyqkb" sql="select *
+  from PZ_ZH_QTDZSYQK t
+ where (t.sshxzt != 'Y' or t.sshxzt is null)
+   and t.qtdzjbdbh is null
+   and kpr_dm = ?
+   and t.TFRQ BETWEEN TO_DATE(?, 'YYYY-MM-DD HH24:mi:ss') AND
+       TO_DATE(?, 'YYYY-MM-DD HH24:mi:ss')" tables="PZ_ZH_QTDZSYQK" />
+<!--  -->
+<sql key="common_sbzs000065_queryqtdzgly" sql="select t.* from pz_qtdzgly t where t.yxbz='Y' and t.qtdzhsjg_dm=?" tables="pz_qtdzgly" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000358_queryjbscdy" sql=" select * from pz_jbscdy a where a.ypruuid = ? and #macroparam# and a.zfbz_1 ='N'" tables="pz_jbscdy" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000264_queryqtdzjjmxbyjjuuid" sql=" select mx.qtdzjjbmxuuid,
+        mx.qtdzjjbuuid,
+        mx.qtdzzl_dm,
+        mx.qtdzzg,
+        mx.qtdzqshm,
+        mx.qtdzzzhm,
+        mx.jjdqtdzsl,
+        mx.pzzt_dm
+   from pz_qtdzjjbmx mx
+  where mx.qtdzjjbuuid = ?
+" tables="pz_qtdzjjbmx" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000384_queryyprkjbpz" sql="SELECT T.PZSYQKUUID,         T.PZZL_DM,         T.PZZG_DM,         T.PZQSHM,         T.PZZZHM,         T.PZZT_DM,         T.PZSL,         T.KJZFSL,         T.SKJE,         T.TFRQ,         T.SJXHRQ,         1 AS XZ    FROM V_ZS_PZ_PZSYQK T   WHERE T.SJXHRQ BETWEEN TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS') AND         TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS')     AND (T.SDDWDJXH = ? OR T.KPR_DM = ?)     AND T.PZZT_DM IN ('02', '03')     AND #macroparam#     AND NOT EXISTS   (SELECT *            FROM PZ_SSPZJBWXZQD T1           WHERE T1.PZSYQKUUID = T.PZSYQKUUID             AND T1.YPRUUID = ?)     AND (1 = #macroparam# OR T.PZZL_DM = ?)     AND (1 = #macroparam# OR T.PZZG_DM = ?)     AND (1 = #macroparam# OR TO_NUMBER(T.PZQSHM) &gt;= TO_NUMBER(?))     AND (1 = #macroparam# OR TO_NUMBER(T.PZZZHM) &lt;= TO_NUMBER(?))   ORDER BY T.SJXHRQ ASC, T.PZZL_DM, T.PZZG_DM, PZQSHM, PZZZHM" tables="V_ZS_PZ_PZSYQK" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000342_queryqtdzssbgdzbbylcjk" sql="select zb.qtdzssbgduuid,
+       zb.qtdzssbgdbh,
+       zb.lcslid,
+       zb.sqdw_dm,
+       zb.sqr_dm,
+       zb.tbrq,
+       zb.ssdwr_dm,
+       zb.ssflxbz,
+       zb.zrrxm,
+       zb.ssrq,
+       zb.ssdd,
+       zb.ssyyjjg,
+       zb.brqksm,
+       zb.pzdc,
+       zb.bz,
+       zb.xhqk,
+       zb.hxrxm,
+       zb.hxrq
+  from pz_qtdzssbgdzb zb
+ where zb.lcslid = ?
+   and zb.zfbz_1 = 'N'
+   and zb.hxbz = 'N'
+" tables="pz_qtdzssbgdzb" />
+<!--  -->
+<sql key="pub_gggl000657_getjhdls5" sql="SELECT SUBSTR(T.SWJG_DM, 0, 5) AS JHDLS_DM    FROM CS_GY_JHDLSYSWJGDZB T   WHERE T.YXBZ = 'Y'     AND T.XYBZ = 'Y'" tables="CS_GY_JHDLSYSWJGDZB" />
+<!--  -->
+<sql key="qdxt_sbzs_pz000074_querypzzgbypzpd" sql="select zg.pzzl_dm,zg.pzzg,zg.pzzg_dm,zg.pzzg_dm as code ,zg.pzzg as caption
+    from cs_pz_pzzgb zg
+   where  zg.pzzl_dm = ? and zg.swjg_dm in (SELECT SWJG_DM
+                         FROM DM_GY_SWJG
+                        START WITH SWJG_DM = ?
+                       CONNECT BY PRIOR SJSWJG_DM = SWJG_DM)" tables="cs_pz_pzzgb,DM_GY_SWJG" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000392_queryjbscwxypr" sql="SELECT DISTINCT T.YPRUUID, T1.YPRLX_DM, T1.YPRMC, T1.DJXH, T1.SWRY_DM    FROM PZ_JBSC T, PZ_YPR T1   WHERE T1.YPRUUID = T.YPRUUID     AND T.ZFBZ_1 = 'N'     AND T.XHUUID IS NULL     AND T.JZPZBH IS NULL     AND (T.TFRQ BETWEEN TO_DATE(?, 'yyyy-mm-dd HH24:mi:ss') AND         TO_DATE(?, 'yyyy-mm-dd HH24:mi:ss'))     AND T1.YXBZ != 'Y'     AND T1.PZHSJG_DM = ?     AND EXISTS (SELECT 1            FROM PZ_ZWCS A           WHERE A.PZDW_DM = T.YPRUUID             AND A.CSHRQ IS NOT NULL             AND A.ZFBZ_1 = 'N')  " tables="PZ_JBSC,PZ_YPR,PZ_ZWCS" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000301_cxqtdzflzjzxx" sql="select * from pz_qtdzflzjzxx a where a.pzdw_dm = ? and a.nd = ? and a.yf = ?" tables="pz_qtdzflzjzxx" />
+<!--  -->
+<sql key="common_sbzs000132_getpzjbtsandskedfornsr" sql="SELECT T.WGKJSCSQXJSKJBTS AS JBTS, T.SKJBED AS SKED FROM CS_PZ_JBJXPZB T" tables="CS_PZ_JBJXPZB" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000272_querylfmx" sql="select * from pz_qtdzlfdmx mx where mx.lrr_dm like ? and exists (select 1 from pz_qtdzlfdzb zb where zb.qtdzlfduuid = mx.qtdzlfduuid and zb.zfbz_1 = 'N') #macroparam#" tables="pz_qtdzlfdmx" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000359_queryzwcsforyj" sql="select * from pz_zwcs where pzdw_dm = ? and zfbz_1 = 'N' for update nowait" tables="pz_zwcs" />
+<!--  -->
+<sql key="common_sbzs000073_queryqtdzzwcs" sql="select * from pz_qtdzzwcs t where t.qtdzjzdw = ? and t.zfbz_1 = 'N'" tables="pz_qtdzzwcs" />
+<!--  -->
+<sql key="common_sbzs000128_getallyprbyswrydmandyprlxdm" sql="SELECT T.*    FROM PZ_YPR T, DM_QX_SWRYSF A   WHERE T.PZHSJG_DM = A.SFSWJG_DM     AND T.YXBZ = 'Y'  AND A.SWRYSF_DM = ?     AND T.YPRLX_DM = ?" tables="PZ_YPR,DM_QX_SWRYSF" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000269_queryqtdzlyr" sql="select t.*
+  from pz_qtdzjbdzb t 
+ where t.zfbz_1 = 'N'
+   and (1 = #macroparam# or t.qtdzjbduuid = ?)
+   and (1 = #macroparam# or t.qtdzjbdbh = ?)
+   and (1 = #macroparam# or t.sfshtgbz = ?)
+   and (1 = #macroparam# or t.pzjblx_dm = ?)
+   and (1 = #macroparam# or t.jbr_dm_1 = ?)
+   and (1 = #macroparam# or t.sbbz = ?)
+   and (1 = #macroparam# or t.cxbz = ?)
+   and (1 = #macroparam# or t.jbdwr_dm = ?)
+   and (1 = #macroparam# or t.shrq &gt;= to_date(?,'yyyy-mm-dd hh24:mi:ss'))
+   and (1 = #macroparam# or t.shrq &lt;= to_date(?,'yyyy-mm-dd hh24:mi:ss'))" tables="pz_qtdzjbdzb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000273_querycshjc" sql="select * from pz_qtdzjc_csh mx where mx.lrr_dm like ? #macroparam#" tables="pz_qtdzjc_csh" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000374_querypzzgbyzl" sql="SELECT T.PZZL_DM AS PCODE, T.PZZG AS CAPTION, T.PZZG_DM AS CODE    FROM CS_PZ_PZZGB T   WHERE T.PZZL_DM = ?     AND SYSDATE BETWEEN T.YXQSRQ AND T.YXZZRQ" tables="CS_PZ_PZZGB" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000321_queryqtdzgztzsbyqtdzjj" sql="select t.gztzsbh, t.fqpzdw_dm, t.jspzdw_dm
+  from pz_qtdzgztzs t
+ where t.fqpzdw_dm = ?
+   and t.tybz = 'N'
+   and t.yxbz = 'Y'
+union all
+select t.gztzsbh, t.fqpzdw_dm, t.jspzdw_dm
+  from pz_qtdzgztzs t
+ where t.jspzdw_dm = ?
+   and t.tybz = 'N'
+   and t.yxbz = 'Y'" tables="pz_qtdzgztzs" />
+<!--  -->
+<sql key="common_sbzs000071_queryyxpzzgselect" sql="select t.qtdzzg_dm code,t.qtdzzg caption,t.qtdzzl_dm pcode,t.* from cs_pz_qtdzzgb t where sysdate between t.yxqsrq and t.yxzzrq and t.gdsbz=?" tables="cs_pz_qtdzzgb" />
+<!--  -->
+<sql key="common_sbzs000087_querydspzzlandpzzg" sql="WITH PZZL AS
+ (SELECT DISTINCT ZL.PZZL_DM CODE,
+                  NULL       PCODE,
+                  ZL.PZZLMC  CAPTION,
+                  ZL.WHPBZ,
+                  ZL.PHCD,
+                  ZL.WBPZBZ,cs.swjg_dm
+    FROM CS_PZ_SWJGDYPZZL CS, DM_PZ_PZZL ZL
+   WHERE CS.PZZL_DM = ZL.PZZL_DM
+     AND ZL.XYBZ = 'Y'
+   AND ZL.YXBZ = 'Y'
+    AND SYSDATE &gt;= NVL(ZL.TYRQ, SYSDATE)
+     AND CS.SWJG_DM like '1%')
+SELECT CODE, PCODE, CAPTION, WHPBZ, PHCD, WBPZBZ
+  FROM PZZL
+UNION
+SELECT PZZG_DM CODE,
+       PZZL_DM PCODE,
+       PZZG    CAPTION,
+       NULL    WHPBZ,
+       NULL    PHCD,
+       NULL    WBPZBZ
+  FROM CS_PZ_PZZGB PZZG
+ WHERE PZZG.PZZL_DM IN (SELECT PZZL_DM FROM PZZL) AND
+ PZZG.SWJG_DM like '2%' AND
+ TRUNC(SYSDATE) BETWEEN TRUNC(PZZG.YXQSRQ) AND TRUNC(PZZG.YXZZRQ)" tables="CS_PZ_PZZGB,CS_PZ_SWJGDYPZZL" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000307_queryqtdznjjzxx" sql="select * from pz_qtdzflzjzxx a where a.pzdw_dm = ? and a.jzpzbh = ? and a.nd = ? and a.yf is null " tables="pz_qtdzflzjzxx" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000308_querylyrqtdznjjzxx" sql="select * from pz_qtdzjbscjzxx a where a.pzdw_dm = ? and a.jzpzbh = ? and a.nd = ? and a.yf is null " tables="pz_qtdzjbscjzxx" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000309_cxqtdzflznjxx" sql="select a.*
+  from pz_qtdzflz a, pz_qtdzflzjzxx b
+ where b.pzdw_dm = ?
+   and b.nd = ?
+   and b.yf is null
+   and b.jzpzbh = a.jzpzbh
+   and a.pzzy_dm = ?
+" tables="pz_qtdzflz,pz_qtdzflzjzxx" />
+<!--  -->
+<sql key="hdxt_sbzs_zs000980_querylsbxx" sql=" select * from zs_ls_jmqysdshd_pl" tables="zs_ls_jmqysdshd_pl" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000363_queryjbscbyyspzbh" sql="SELECT T.* FROM PZ_JBSC T WHERE T.YSPZBH_1 = ?" tables="PZ_JBSC" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000275_queryqtdzssbgdzbbylcslid" sql="select zb.qtdzssbgduuid,
+       zb.qtdzssbgdbh,
+       zb.lcslid,
+       zb.sqdw_dm,
+       zb.sqr_dm,
+       zb.tbrq,
+       zb.ssdwr_dm,
+       zb.ssflxbz,
+       zb.zrrxm,
+       zb.ssrq,
+       zb.ssdd,
+       zb.ssyyjjg,
+       zb.brqksm,
+       zb.pzdc,
+       zb.bz,
+       zb.xhqk,
+       zb.hxrxm,
+       zb.hxrq
+  from pz_qtdzssbgdzb zb
+ where zb.lcslid = ?" tables="pz_qtdzssbgdzb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000361_queryyhsjbsc" sql="SELECT TRUNC(A.TFRQ) TFRQ,         A.YSPZBH_1,         A.PZZL_DM,         A.LQS,         A.KJS,         A.JC,         A.ZL_JC,         A.PZZY_DM    FROM PZ_JBSC A   WHERE EXISTS (SELECT 1            FROM DM_PZ_PZZL B           WHERE B.SJPZZL_DM = '000004010'             AND B.XYBZ = 'Y'             AND B.YXBZ = 'Y'             AND B.PZXLBZ = 'Y'             AND B.PZZL_DM = A.PZZL_DM)     AND A.TZLX_DM IN ('1', '4')     AND A.ZFBZ_1 = 'N'     AND A.YPRUUID = ?     AND A.TFRQ &gt; = TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS')     AND A.TFRQ &lt; = TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS')     AND (1 = #macroparam# OR A.PZZY_DM IN (#macroparam#))" tables="pz_jbsc" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000282_checkqtdzflz" sql="select a.* from pz_qtdzflz a where a.pzdw_dm = ? and a.pzzy_dm not in (#macroparam#)" tables="pz_qtdzflz" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000295_queryqtdzxhsqmxbyxhuuid" sql="select mx.qtdzxhsqmxuuid,
+       mx.qtdzxhsquuid,
+       mx.qtdzzl_dm,
+       mx.qtdzzg,
+       mx.qtdzqshm,
+       mx.qtdzzzhm,
+       mx.xhsl,
+       mx.gdbgnx,
+       mx.ybgnx,
+       mx.ljhm,
+       mx.qtdzjcuuid
+  from pz_qtdzxhsqmxb mx
+ where mx.qtdzxhsquuid = ?" tables="pz_qtdzxhsqmxb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000382_querygsdzdsdwlfdmx" sql="SELECT MX.PZZL_DM,         MX.PZZG_DM,         MX.LQSL,         MX.PZQSHM,         MX.PZZZHM,         MX.BZ,         ZL.PHCD,         ZL.WHPBZ    FROM PZ_SSPZLFDZB ZB, PZ_SSPZLFDMXB MX, DM_PZ_PZZL ZL   WHERE ZB.PZLFDUUID = MX.PZLFDUUID     AND MX.PZZL_DM = ZL.PZZL_DM     AND ZB.ZFBZ_1 = 'N'     AND ZB.LFDLX_DM = ?     AND ZB.FFFLX_DM = ?     AND ZB.LQFLX_DM = ?     AND ZB.SSPZLFDBH = ?     AND ZB.LQDWR = ?" tables="PZ_SSPZLFDZB,PZ_SSPZLFDMXB,DM_PZ_PZZL" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000311_queryqtdzsyqkb" sql="select t.*
+  from pz_zh_qtdzsyqk t
+ where t.qtdzzl_dm = ?
+   and t.qtdzjbdbh is null
+   and t.kpr_dm = ?
+   and (1 = #macroparam# OR t.qtdzzg_dm = ?)
+   and (1 = #macroparam# OR t.qtdzhm = ?)
+ order by tfrq desc" tables="pz_zh_qtdzsyqk" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000394_querycxjbscwxypr" sql="SELECT DISTINCT T.YPRUUID, T1.YPRLX_DM, T1.YPRMC, T1.DJXH, T1.SWRY_DM    FROM PZ_JBSC T, PZ_YPR T1   WHERE T1.YPRUUID = T.YPRUUID     AND T.ZFBZ_1 = 'N'     AND T.XHUUID IS NOT NULL     AND T.JZPZBH IS NOT NULL     AND (T.TFRQ BETWEEN TO_DATE(?, 'yyyy-mm-dd HH24:mi:ss') AND         TO_DATE(?, 'yyyy-mm-dd HH24:mi:ss'))     AND T1.YXBZ != 'Y'     AND T1.PZHSJG_DM = ?     AND EXISTS (SELECT 1            FROM PZ_ZWCS A           WHERE A.PZDW_DM = T.YPRUUID             AND A.CSHRQ IS NOT NULL             AND A.ZFBZ_1 = 'N')" tables="PZ_JBSC,PZ_YPR" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000369_querypzyjrq" sql="SELECT *    FROM PZ_YJRQSZB T   WHERE T.YJRQND = ?     AND T.YJRQYF = ?" tables="PZ_YJRQSZB" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000258_queryqtdzxhsqbyqtdzjj" sql="select zb.qtdzxhsquuid,
+       zb.qtdzxhqcbbh,
+       zb.tbdw_dm,
+       zb.tbr_dm,
+       zb.tbrq,
+       zb.xhjgyj,
+       zb.xhsr,
+       zb.xhzr,
+       zb.spyjsm,
+       zb.pzxhyy_dm,
+       zb.xhswjg_dm,
+       zb.dwfzr_dm,
+       zb.xhqk,
+       zb.xhr_dm_1,
+       zb.jhr,
+       zb.zstybz,
+       zb.zsrq_3,
+       zb.zsr_dm,
+       zb.xhsm,
+       zb.lcslid
+  from pz_qtdzxhsqzb zb
+ where zb.tbdw_dm = ?
+   and zb.zfbz_1 = 'N'
+   and zb.zstybz = 'N'" tables="pz_qtdzxhsqzb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000298_queryqtdzflzbymxhm" sql="select *
+  from pz_qtdzflz a
+ where a.yspzhm = ?
+   and a.yspzmxhm = ?
+   and a.tzlx_dm in (#macroparam#)" tables="pz_qtdzflz" />
+<!--  -->
+<sql key="qdxt_sbzs_pz000078_getpzsptjxqjswjgdm" sql="SELECT SWJG_DM
+  FROM DM_GY_SWJG T
+ WHERE T.SWJGBZ = '0'
+   AND YXBZ = 'Y'
+   AND T.JGJC_DM BETWEEN '40' AND '42'
+ START WITH T.SWJG_DM = ?
+        AND T.XYBZ = 'Y'
+        AND T.YXBZ = 'Y'
+        AND SYSDATE BETWEEN T.YXQSRQ AND T.YXZZRQ
+CONNECT BY PRIOR T.SJSWJG_DM = T.SWJG_DM" tables="DM_GY_SWJG" />
+<!--  -->
+<sql key="common_sbzs000106_querypzhsjgdm" sql="SELECT G.PZHSJG_DM    FROM PZ_PZGLY G, DM_QX_SWRYSF SF   WHERE SF.SFSWJG_DM = G.PZHSJG_DM     AND SF.SWRYSF_DM = ?     AND G.YXBZ = 'Y'  UNION  SELECT T1.PZHSJG_DM    FROM PZ_YPR T1   WHERE T1.SWRY_DM = ?     AND T1.YPRLX_DM = ?     AND T1.YXBZ = 'Y'" tables="pz_pzgly,dm_qx_swrysf,pz_ypr" />
+<!--  -->
+<sql key="common_sbzs000069_queryqtdzpzzl" sql="select * from dm_pz_qtdzzl where yxqz is null or yxqz &gt; sysdate order by qtdzzl_dm" tables="dm_pz_qtdzzl" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000404_getmodiflyyprmclist" sql="select t.ypruuid, nsr.nsrmc as yprmc    from pz_ypr t, dj_nsrxx nsr   where t.pzhsjg_dm = ?     and t.yxbz = ?     and (t.yprlx_dm = ? or t.yprlx_dm = ?)     and t.djxh = nsr.djxh     and t.yprmc != nsr.nsrmc  union all  select t.ypruuid, dm.swryxm as yprmc    from pz_ypr t, dm_gy_swry dm   where t.pzhsjg_dm = ?     and t.yxbz = ?     and t.yprlx_dm = ?     and t.swry_dm = dm.swry_dm     and t.yprmc != dm.swryxm" tables="pz_ypr,dj_nsrxx,dm_gy_swry" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000257_queryqtdzssbgdbyqtdzjj" sql="select zb.qtdzssbgduuid,
+       zb.qtdzssbgdbh,
+       zb.lcslid,
+       zb.sqdw_dm,
+       zb.sqr_dm,
+       zb.tbrq,
+       zb.ssdwr_dm,
+       zb.ssflxbz,
+       zb.zrrxm,
+       zb.ssrq,
+       zb.ssdd,
+       zb.ssyyjjg,
+       zb.brqksm,
+       zb.pzdc,
+       zb.bz,
+       zb.xhqk,
+       zb.hxrxm,
+       zb.hxrq,
+       zb.hxsl
+  from pz_qtdzssbgdzb zb
+ where zb.zfbz_1 = 'N'
+   and zb.hxbz = 'N'
+   and zb.sqdw_dm =?" tables="pz_qtdzssbgdzb" />
+<!--  -->
+<sql key="common_sbzs000077_isusedqtdzzg" sql="select 1 from pz_qtdzjc jc where jc.qtdzzg_dm = ?
+union all 
+select 1 from pz_qtdzlfdmx lf where lf.qtdzzg_dm =?
+union all
+select 1 from pz_qtdzjc_csh csh where csh.qtdzzg_dm = ?" tables="pz_qtdzjc,pz_qtdzlfdmx" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000331_queryqtdzgzmxforgz" sql="select t.yspzmxhm  yspzmxhm,
+         t.qtdzzl_dm,
+         t.qtdzzg_dm,
+         t.pzsl     jc,
+         t.qtdzqshm,
+         t.qtdzzzhm,
+         t.gztzsuuid,
+         t.gztzsmxuuid
+    from pz_qtdzgztzs_mx t, pz_qtdzgztzs a
+   where t.gztzsuuid = a.gztzsuuid
+     and t.yspzmxhm=?
+     and a.yxbz = 'Y'
+     and t.sxlx='2'
+     and a.tybz = 'Y' 
+     and t.lrrq=(select max(lrrq) from pz_qtdzgztzs_mx where yspzmxhm=?)" tables="pz_qtdzgztzs_mx,pz_qtdzgztzs" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000354_querypzxhmxforysdjcd" sql="select t.*,t.xhsl pzsl from pz_sspzxhsqmxb t where t.sspzxhsquuid = ?" tables="pz_sspzxhsqmxb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000265_queryqtdzjcbyhsjgdm" sql="select jc.qtdzjcuuid,
+       jc.qtdzhsjg_dm,
+       jc.czyuuid,
+       jc.yprlx_dm,
+       jc.qtdzzl_dm,
+       jc.qtdzzg_dm,
+       jc.qtdzqshm,
+       jc.qtdzzzhm,
+       jc.jcsl,
+       jc.rkrq,
+       jc.ffyxj,
+       jc.qtdzdjbz,
+       jc.pzzt_dm
+  from pz_qtdzjc jc
+ where jc.qtdzhsjg_dm = ?
+" tables="pz_qtdzjc" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000299_hzswjgqtdzjh" sql="SELECT T.QTDZZL_DM, SUM(T.PZJHSL) AS HZSL, SUM(T.PZJHSL) AS PZJHSL
+  FROM PZ_QTDZHZJHMXB T
+ WHERE T.QTDZHZJHUUID IN (#macroparam#)
+ GROUP BY T.QTDZZL_DM" tables="PZ_QTDZHZJHMXB" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000357_getypswryzdpzhmkcxxforupdatenowait" sql="  select a.*
+ from pz_jc a
+ where a.yxbz='Y'
+ and a.czyuuid = ?
+ and a.pzzl_dm = ? 
+ AND (1=? or a.pzzg_dm = ?)
+ and a.pzzt_dm = ? 
+ and a.pzqshm &lt;= ? 
+ and a.pzzzhm &gt;= ?
+ and a.yprlx_dm = ? 
+ and a.jcsl &gt; 0
+ for update nowait" tables="pz_jc" />
+<!--  -->
+<sql key="qdxt_sbzs_pz000069_querylyrandgly" sql="select t.qtdzlyr_dm as code
+  from pz_qtdzlyr t
+ where t.qtdzhsjg_dm like ? and sysdate between t.yxqsrq and t.yxzzrq
+union all
+select t1.qtdzgly_dm as code
+  from pz_qtdzgly t1
+ where t1.qtdzhsjg_dm like ? and yxbz='Y'" tables="pz_qtdzlyr,pz_qtdzgly" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000293_querydspzzlandpzzg" sql="SELECT DISTINCT ZL.PZZL_DM  CODE,                  NULL        PCODE,                  ZL.PZZLMC   CAPTION,                  ZL.WHPBZ,                  ZL.PHCD,                  ZL.WBPZBZ,                  ZL.XJPZBZ,                  ZL.STXJGLBZ,                  NULL        GDSBZ    FROM CS_PZ_SWJGDYPZZL CS, DM_PZ_PZZL ZL   WHERE CS.PZZL_DM = ZL.PZZL_DM     AND ZL.XYBZ = 'Y'     AND ZL.YXBZ = 'Y'  UNION  SELECT PZZG_DM CODE,         PZZL_DM PCODE,         PZZG    CAPTION,         NULL    WHPBZ,         NULL    PHCD,         NULL    WBPZBZ,         NULL    XJPZBZ,         NULL    STXJGLBZ,         GDSBZ    FROM CS_PZ_PZZGB PZZG   WHERE SYSDATE BETWEEN PZZG.YXQSRQ AND PZZG.YXZZRQ  " tables="CS_PZ_SWJGDYPZZL,CS_PZ_PZZGB" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000362_iszgjgkcplbydjxh" sql="SELECT T1.DJXH, SUM(T.JCSL) AS YXBZ    FROM PZ_JC T, PZ_YPR T1,PZ_LS_DJXH DJ   WHERE T.CZYUUID = T1.YPRUUID     AND t1.yxbz='Y'   AND T.YXBZ = 'Y'     AND T.PZZT_DM = '01'     AND DJ.DJXH = T1.DJXH   GROUP BY T1.DJXH" tables="PZ_JC,PZ_YPR,PZ_LS_DJXH" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000395_querywxyprzwzl" sql="SELECT DISTINCT T.PZZL_DM    FROM PZ_JBSC T   WHERE T.ZFBZ_1 = 'N'     AND T.YPRUUID = ?     AND (T.TFRQ BETWEEN TO_DATE(?, 'yyyy-mm-dd HH24:mi:ss') AND         TO_DATE(?, 'yyyy-mm-dd HH24:mi:ss'))  " tables="PZ_JBSC" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000255_queryqtdzlyr" sql="select t.*
+  from pz_qtdzlyr t
+ where sysdate between t.yxqsrq and t.yxzzrq
+   and (1 = #macroparam# or t.qtdzhsjg_dm = ?)
+   and (1 = #macroparam# or t.qtdzlyr_dm = ?)
+   and (1 = #macroparam# or t.qtdzlyruuid = ?)" tables="pz_qtdzlyr" />
+<!--  -->
+<sql key="qdxt_sbzs_pz000072_queryqtdzxhyy" sql="select y.pzxhyy_dm, y.pzxhyymc, y.pzxhyy_dm as code, y.pzxhyymc as caption
+  from dm_pz_pzxhyy y
+ where y.xybz = 'Y'
+   and y.yxbz = 'Y'" tables="dm_pz_pzxhyy" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000324_queryqtdzzwgzmx" sql="select a.gzq,
+           a.ysqtdzzl_dm,
+           a.ysqtdzzg_dm,
+           a.ysqshm,
+           a.yszzhm,
+           a.yspzsl,
+           '更正后' gzh,
+           b.qtdzzl_dm,
+           b.qtdzzg_dm,
+           b.qtdzqshm,
+           b.qtdzzzhm,
+           b.pzsl,
+           a.yspzmxhm
+      from (select '更正前' gzq,
+                   t1.gztzsuuid,
+                   t1.yspzmxhm,
+                   t1.qtdzzl_dm ysqtdzzl_dm,
+                   t1.qtdzzg_dm ysqtdzzg_dm,
+                   t1.qtdzqshm ysqshm,
+                   t1.qtdzzzhm yszzhm,
+                   t1.pzsl yspzsl,
+                   t1.sxlx
+              from pz_qtdzgztzs_mx t1
+             where t1.gztzsuuid = ?
+               and t1.sxlx = '1') a
+      left join pz_qtdzgztzs_mx b
+        on a.yspzmxhm = b.yspzmxhm
+     where b.gztzsuuid = a.gztzsuuid
+       and b.sxlx = '2'" tables="pz_qtdzgztzs_mx" />
+<!--  -->
+<sql key="common_sbzs000129_getallxyjpzglyvosbyswrydm" sql="SELECT *    FROM PZ_PZGLY T   WHERE T.YXBZ = 'Y'     AND T.PZHSJG_DM IN (#macroparam#)" tables="PZ_PZGLY" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000388_querywxzpz" sql="SELECT * FROM PZ_SSPZJBWXZQD T WHERE T.YPRUUID = ?" tables="PZ_SSPZJBWXZQD" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000352_queryjjbmxforysdjcd" sql="select pzzl_dm, pzzg_dm, t.jjpzsl pzsl, pzqshm, pzzzhm, a.pzztmc pzzt_dm
+   from pz_sspzjjqkmx t,dm_pz_pzzt a
+  where pzjjbuuid= ?
+  and t.pzzt_dm = a.pzzt_dm" tables="pz_sspzjjqkmx" />
+<!--  -->
+<sql key="common_sbzs000127_getyprvobydjxh" sql="SELECT *    FROM PZ_YPR T   WHERE T.DJXH = ?     AND T.YXBZ = 'Y'" tables="PZ_YPR" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000330_queryqtdzlfdzb" sql="select * from pz_qtdzlfdzb where qtdzlfduuid = ?" tables="pz_qtdzlfdzb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000349_cxkcxsspzgdxx" sql="select *
+  from pz_qtdzgdzb t
+ where t.bbdw_dm = ?   and t.zfr_dm is null
+   and t.zfrq_1 is null
+   and t.bbrq between to_date(?, 'yyyy-mm-dd HH24:mi:ss') and
+       to_date(?, 'yyyy-mm-dd HH24:mi:ss')
+ order by t.bbrq desc" tables="pz_qtdzgdzb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000379_querypzspznjg" sql="SELECT SWJG_DM FROM CS_PZ_PZSPJG" tables="cs_pz_pzspjg" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000398_getzsdzspmx" sql="WITH T1 AS   (SELECT '000006010' AS PZZL_DM, A.KKZT_DM, A.DZSPHM, A.SJJE AS JE      FROM ZS_SKY_KKXX A     WHERE A.KKZT_DM IN ('01', '02')       AND A.SKSSSWJG_DM = ?       AND ((A.LRRQ BETWEEN TO_DATE(?, 'yyyy-mm-dd hh24:mi:ss') AND           TO_DATE(?, 'yyyy-mm-dd hh24:mi:ss')) OR           (A.XGRQ BETWEEN TO_DATE(?, 'yyyy-mm-dd hh24:mi:ss') AND           TO_DATE(?, 'yyyy-mm-dd hh24:mi:ss')))    UNION ALL    SELECT '000007010' AS PZZL_DM, B.KKZT_DM, B.DZSPHM, B.HJJE AS JE      FROM ZS_SKY_PLTKZB B     WHERE B.SKYJYLX_DM = 'SKTKA1'       AND B.KKZT_DM IN ('01', '02')       AND B.SKSSSWJG_DM = ?       AND ((B.LRRQ BETWEEN TO_DATE(?, 'yyyy-mm-dd hh24:mi:ss') AND           TO_DATE(?, 'yyyy-mm-dd hh24:mi:ss')) OR           (B.XGRQ BETWEEN TO_DATE(?, 'yyyy-mm-dd hh24:mi:ss') AND           TO_DATE(?, 'yyyy-mm-dd hh24:mi:ss')))),  T2 AS   (SELECT T1.*,           CASE             WHEN T1.DZSPHM - 1 = LAG(T1.DZSPHM)              OVER(PARTITION BY T1.PZZL_DM,                       T1.KKZT_DM ORDER BY T1.PZZL_DM,                       T1.KKZT_DM,                       T1.DZSPHM) THEN              0             ELSE              1           END AS LXBZ      FROM T1),  T3 AS   (SELECT T2.*,           SUM(LXBZ) OVER(PARTITION BY T2.PZZL_DM, T2.KKZT_DM ORDER BY T2.PZZL_DM, T2.KKZT_DM, T2.DZSPHM) AS FZBZ      FROM T2)  SELECT T3.PZZL_DM,         T3.KKZT_DM,         MIN(T3.DZSPHM) AS PZQSHM,         MAX(T3.DZSPHM) AS PZZZHM,         CASE           WHEN T3.KKZT_DM = '01' THEN            COUNT(1)           ELSE            0         END AS PZSL,         CASE           WHEN T3.KKZT_DM = '01' THEN            SUM(T3.JE)           ELSE            0         END AS SKJE,         CASE           WHEN T3.KKZT_DM = '02' THEN            COUNT(1)           ELSE            0         END AS KJZFSL    FROM T3   GROUP BY T3.PZZL_DM, T3.KKZT_DM, T3.FZBZ   ORDER BY T3.PZZL_DM, T3.KKZT_DM, T3.FZBZ  " tables="ZS_SKY_KKXX,ZS_SKY_PLTKZB" />
+<!--  -->
+<sql key="qdxt_sbzs_pz000079_getswjgcj" sql="SELECT CASE
+         WHEN JG.JGJC_DM = '00' THEN
+          '01'
+         WHEN JG.JGJC_DM BETWEEN '10' AND '24' THEN
+          '02'
+         WHEN JG.JGJC_DM BETWEEN '30' AND '32' THEN
+          '03'
+         WHEN JG.JGJC_DM BETWEEN '40' AND '42' THEN
+          '04'
+         WHEN JG.JGJC_DM BETWEEN '50' AND '52' THEN
+          '05'
+         WHEN JG.JGJC_DM BETWEEN '60' AND '62' THEN
+          '06'
+       END
+  FROM DM_GY_SWJG JG
+ WHERE JG.SWJG_DM = ?" tables="DM_GY_SWJG" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000327_queryqtdzgzlfd" sql="select t.qtdzlfduuid yspzhm,
+        g.gztzsuuid ,
+        t.qtdzlfdbh yspzbh1,
+        g.gztzsbh,
+        t.lrrq rq,
+        t.lrr_dm fqrxm
+   from pz_qtdzlfdzb t, pz_qtdzgztzs g
+  where t.zfbz_1 = 'N'
+    and t.qtdzlfduuid = g.yspzhm
+    and t.qtdzlfdbh = g.yspzbh_1
+    and g.sc_tzsuuid is null
+    and g.tybz  = 'N'
+    and g.yxbz = 'Y'
+    and g.jsr_dm = ?
+    and g.rq between ? and ?
+    and g.pzyspz_dm = ?" tables="pz_qtdzlfdzb,pz_qtdzgztzs" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000318_queryqtdzflznj" sql="select * from pz_qtdzflzjzxx a where a.pzdw_dm = ? and a.nd = ? and a.yf is null" tables="pz_qtdzflzjzxx" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000332_queryqtdzjbdmxforgz" sql="select t.qtdzjbdmxuuid yspzmxhm,
+	         t.qtdzzl_dm,
+	         t.qtdzzg_dm,
+	         t.pzsl        jc,
+	         t.qtdzqshm,
+	         t.qtdzzzhm
+	    from pz_qtdzjbdmx t
+   where t.qtdzjbduuid= ?" tables="pz_qtdzjbdmx" />
+<!--  -->
+<sql key="pub_gggl000587_getpzsptj" sql="SELECT *
+  FROM CS_PZ_SSPZSPTJWH T
+ WHERE T.SWJG_DM = ?
+" tables="CS_PZ_SSPZSPTJWH" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000303_cxqtdzjbscjzxx" sql="select * from pz_qtdzjbscjzxx a where a.pzdw_dm = ? and a.nd = ? and a.yf = ?" tables="pz_qtdzjbscjzxx" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000402_confirmypryjdjb" sql="select 1    from dual   where exists (select /*+use_concat*/           1            from v_zs_pz_pzsyqk a, pz_ypr b           where decode(b.yprlx_dm, 12, swry_dm, b.djxh) =                 some(a.sddwdjxh, a.kpr_dm)             and b.yxbz = 'Y'             and a.PZZT_DM in ('02', '03')             and b.pzhsjg_dm = ?             and a.SJXHRQ between                 to_date(?, 'yyyy-mm-dd hh24:mi:ss') and                 to_date(?, 'yyyy-mm-dd hh24:mi:ss'))" tables="v_zs_pz_pzsyqk,pz_ypr" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000263_queryqtdzjjzbbylcslid" sql="select zb.qtdzjjbuuid,
+       zb.lcslid,
+       zb.qtdzjjbbh,
+       zb.swjg_dm,
+       zb.bzrq,
+       zb.jzpzzbbbjjqk,
+       zb.jjzczljsl,
+       zb.qtxyjjdzljxysmdwt,
+       zb.jsr_dm,
+       zb.yjr_dm,
+       zb.zfbz_1,
+       zb.jjbz,
+       zb.hsyj,
+       zb.jsrq,
+       zb.fhyj,
+       zb.fhr_dm,
+       zb.fhrq
+  from pz_qtdzjjbzb zb
+ where zb.lcslid = ?" tables="pz_qtdzjjbzb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000353_querypzxhforysdjcd" sql="select t.sspzxhsquuid pzuuid,t.sspzxhsqbh pzbh,t.bbdw_dm sqdwmc,t.bbrq rq,t.xhswjg_dm,t.xhrq,t.dwfzr_dm,t.xhr_dm_1 xhr_dm,t.jhr,t.xhrq,t.pzxhyy_dm
+from pz_sspzxhsqzb t
+     where (1 = ? or t.sspzxhsqbh = ?)
+       and (1 = ? or bbdw_dm = ?)
+       and trunc(bbrq) between ? and ?
+       and t.zfbz_1='N'
+       and t.zstybz = 'Y'
+       order by t.sspzxhsqbh Asc" tables="pz_sspzxhsqzb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000325_queryqtdzgzjbd" sql="select t.qtdzjbduuid yspzhm,
+          g.gztzsuuid,
+          t.qtdzjbdbh yspzbh1,
+          g.gztzsbh,
+          t.jbrq_1 rq,
+          t.lrr_dm fqrxm
+     from pz_qtdzjbdzb t, pz_qtdzgztzs g
+    where t.zfbz_1 != 'Y'
+      and t.sfshtgbz = 'Y'
+      and t.qtdzjbduuid = g.yspzhm
+      and g.sc_tzsuuid is null
+      and g.tybz = 'N'
+      and g.yxbz = 'Y'
+      and g.jsr_dm = ?
+      and g.rq between ? and ?
+      and g.pzyspz_dm = ?" tables="pz_qtdzjbdzb,pz_qtdzgztzs" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000375_querypzzgbyjgzl" sql="SELECT T.PZZL_DM AS PCODE, T.PZZG AS CAPTION, T.PZZG_DM AS CODE    FROM CS_PZ_PZZGB T   WHERE T.PZZL_DM = ?   AND t.swjg_dm IN (#macroparam#)     AND SYSDATE BETWEEN T.YXQSRQ AND T.YXZZRQ" tables="CS_PZ_PZZGB" />
+<!--  -->
+<sql key="qdxt_sbzs_pz000080_getjjr" sql="SELECT *    FROM CS_GY_JJR T   WHERE T.JJRQSRQ &gt;= TO_DATE(?, 'YYYY-MM-DD')     AND T.JJRZZRQ &lt;= TO_DATE(?, 'YYYY-MM-DD')     AND T.SWJG_DM = ?     AND T.XYBZ = 'Y'" tables="CS_GY_JJR" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000313_queryqtdzssbgdbyqtdzcd" sql="select t.qtdzssbgduuid,
+       t.qtdzssbgdbh,
+       t.sqdw_dm,
+       t.sqr_dm,
+       t.tbrq,
+       t.ssdwr_dm,
+       t.zrrxm,
+       t.ssrq,
+       t.ssdd,
+       t.ssyyjjg,
+       t.ssflxbz
+  from pz_qtdzssbgdzb t
+   where t.zfbz_1 = 'N'
+   and t.hxbz = 'Y'
+   and (1 = #macroparam# or t.qtdzssbgdbh = ?)
+   and (1 = #macroparam# or t.sqdw_dm = ?)
+   and (1 = #macroparam# or t.hxrq &gt;=to_Date(?, 'yyyy-mm-dd HH24:mi:ss'))
+   and (1 = #macroparam# or t.hxrq &lt;=to_Date(?, 'yyyy-mm-dd HH24:mi:ss'))" tables="pz_qtdzssbgdzb" />
+<!--  -->
+<sql key="hdxt_sbzs_zs000799_cxsskksxgnpz" sql="select sxgn.skssswjg_dm from cs_zs_sky_sxgnpz sxgn 
+     where sxgn.skyjylx_dm = 'SKKKA1' and sxgn.yxbz = 'Y' and sxgn.xybz = 'Y'" tables="cs_zs_sky_sxgnpz" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000287_queryqtdzjhmxbyuuid" sql="SELECT * FROM PZ_QTDZHZJHMXB T WHERE T.QTDZHZJHUUID = ?" tables="PZ_QTDZHZJHMXB" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000256_queryqtdzlrypzzl" sql="select * from pz_lyrqtdzzlhdxxb t where t.qtdzlyruuid = ? and sysdate between t.yxqsrq and t.yxzzrq" tables="pz_lyrqtdzzlhdxxb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000383_querypzjbjxjktj" sql="SELECT * FROM cs_pz_jbjxpzb" tables="cs_pz_jbjxpzb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000364_getqcjcpzzldm" sql="SELECT DISTINCT T.PZZL_DM    FROM PZ_JC_CSH T   WHERE T.PZHSJG_DM IN (#macroparam#)     AND T.YXBZ = 'Y'" tables="PZ_JC_CSH" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000259_queryqtdzjj" sql="select zb.qtdzjjbuuid,
+       zb.lcslid,
+       zb.qtdzjjbbh,
+       zb.swjg_dm,
+       zb.bzrq,
+       zb.jzpzzbbbjjqk,
+       zb.jjzczljsl,
+       zb.qtxyjjdzljxysmdwt,
+       zb.jsr_dm,
+       zb.yjr_dm,
+       zb.zfbz_1,
+       zb.jjbz,
+       zb.hsyj,
+       zb.jsrq,
+       zb.fhyj,
+       zb.fhr_dm,
+       zb.fhrq
+  from pz_qtdzjjbzb zb
+ where zb.yjr_dm = ?
+   and zb.zfbz_1 = 'N'
+   and zb.fhyj = 'N'" tables="pz_qtdzjjbzb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000279_querycshlfq" sql="select * from pz_qtdzlfdzb a where a.lfdlx_dm = ? and a.lqf_dm = ? and a.zfbz_1 = 'N'" tables="pz_qtdzlfdzb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000346_getsshxzfgdxxbypzzlandrq" sql="SELECT T.QTDZSSBGDUUID as pzgdmxuuid,
+              T.QTDZSSBGDBH   AS pzhmq,
+              T.QTDZSSBGDBH   AS pzhmz
+         FROM pz_qtdzssbgdzb T
+        WHERE  T.Sqdw_Dm = ?
+          AND T.Zfbz_1 = 'N'
+          AND T.Hxbz = 'Y'
+	#macroparam#
+        ORDER BY T.QTDZSSBGDBH" tables="pz_qtdzssbgdzb" />
+<!--  -->
+<sql key="common_sbzs000078_querylyrlist" sql="select t.qtdzlyruuid, ry.swryxm, ry.swry_dm
+  from pz_qtdzlyr t, dm_gy_swry ry
+ where t.qtdzlyr_dm = ry.swry_dm
+   and t.qtdzhsjg_dm = ?
+   and to_date(?, 'YYYY-MM-DD') &lt;= t.yxzzrq 
+   and to_date(?, 'YYYY-MM-DD') &gt;= t.yxqsrq 
+   and exists(
+  select 1
+    from pz_qtdzzwcs a
+   where a.qtdzjzdw = t.qtdzlyruuid
+     and a.cshrq is not null
+     and a.zfbz_1 = 'N')" tables="pz_qtdzlyr,dm_gy_swry" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000373_querypzhsjgdms" sql="SELECT t.pzhsjg_dm FROM pz_pzgly t WHERE t.yxbz ='Y'" tables="pz_pzgly" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000334_queryqtdzlfdmxforgz" sql="select t.qtdzlfdmxuuid yspzmxhm,
+	       t.qtdzzl_dm,
+	       t.qtdzzg_dm,
+	       t.lqsl        jc,
+	       t.qtdzqshm,
+	       t.qtdzzzhm
+	  from pz_qtdzlfdmx t
+	where t.qtdzlfduuid = ?" tables="pz_qtdzlfdmx" />
+<!--  -->
+<sql key="pub_gggl000586_getswjgssxpzznstree" sql="SELECT T.SWJG_DM AS CODE, T.SJSWJG_DM AS PCODE, T.SWJGMC AS CAPTION
+  FROM DM_GY_SWJG T
+ WHERE T.SWJGBZ = '0'
+   AND SUBSTR(JGJC_DM, 0, 1) &lt;= 4
+ START WITH T.SWJG_DM = ?
+        AND T.XYBZ = 'Y'
+        AND T.YXBZ = 'Y'
+        AND SYSDATE BETWEEN T.YXQSRQ AND T.YXZZRQ
+CONNECT BY PRIOR T.SWJG_DM = T.SJSWJG_DM" tables="DM_GY_SWJG" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000290_qtdzflzssphpzzl" sql="select distinct a.qtdzzl_dm,c.qtdzzlmc
+             from pz_qtdzflz a, pz_qtdzflzjzxx b,dm_pz_qtdzzl c
+            where a.pzzy_dm = '12'
+              and a.xhuuid = b.xhuuid
+              and b.pzdw_dm = ?
+              and b.nd = ?
+              and b.yf = ?
+              and a.qtdzzl_dm = c.qtdzzl_dm
+              order by a.qtdzzl_dm" tables="pz_qtdzflz,pz_qtdzflzjzxx,dm_pz_qtdzzl" />
+<!--  -->
+<sql key="common_sbzs000066_queryqtdzglybyswry" sql="select t.* from pz_qtdzgly t where t.yxbz='Y' and t.qtdzgly_dm=?" tables="pz_qtdzgly" />
+<!--  -->
+<sql key="common_sbzs000124_getpzznallbjandsjjgdm" sql="SELECT DISTINCT T.SWJG_DM    FROM QX_SWJG_ZNS T   WHERE T.ZN_DM = ?     AND T.YXBZ = 'Y'   START WITH T.SWJG_DM = ?          AND T.ZN_DM = ?          AND T.YXBZ = 'Y'  CONNECT BY  T.SWJG_DM = PRIOR T.SJSWJG_DM         AND T.ZN_DM = ?         AND T.YXBZ = 'Y'" tables="QX_SWJG_ZNS" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000348_getxhzfgdxxbypzzlandrq" sql="SELECT T.QTDZXHSQUUID as pzgdmxuuid,
+              T.QTDZXHQCBBH   AS pzhmq,
+              T.QTDZXHQCBBH   AS pzhmz
+         FROM pz_qtdzxhsqzb T
+        WHERE T.Xhswjg_Dm = ?
+          AND T.Zfbz_1 = 'N'
+          AND T.Zstybz = 'Y'
+	#macroparam#
+           ORDER BY T.QTDZXHQCBBH" tables="pz_qtdzxhsqzb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000400_checkpzwbjyw" sql="WITH TB1 AS   (SELECT '票证月结' AS YWLB, PZDW_DM AS JG_DM, YSPZBH_1 AS BH      FROM PZ_FLZ     WHERE XHUUID IS NULL       AND JZPZBH IS NULL       AND ZFBZ_1 = 'N'       AND TZLX_DM IN ('1', '4')       AND PZZY_DM IN           ('01', '02', '03', '04', '05', '06', '07', '08', '09', '10')    UNION ALL    SELECT '票证结报' AS YWLB, PZHSJG_DM AS JG_DM, SSPKJBDBH AS BH      FROM PZ_SSPKJBDZB     WHERE SHBZ = 'N'       AND ZFBZ_1 = 'N'       AND CXBZ = 'N'    UNION ALL    SELECT '票证缴销' AS YWLB, JBJXDWR AS JG_DM, SSPZJXBBH AS BH      FROM PZ_SSPZJXB     WHERE SFSHTGBZ = 'N'       AND ZFBZ_1 = 'N'       AND CXBZ = 'N'    UNION ALL    SELECT '票证检查' AS YWLB, BSDWR_DM AS JG_DM, CCQDBH AS BH      FROM PZ_SSPZJCQDZB     WHERE ZFBZ_1 = 'N'       AND ZSBZ = 'N'    UNION ALL    SELECT '票证停用' AS YWLB, BBDW_DM AS JG_DM, SSPZTYZFBH AS BH      FROM PZ_SSPZTYZFZB     WHERE ZFBZ_1 = 'N'       AND ZSRQ_3 IS NULL       AND ZSR_DM IS NULL    UNION ALL    SELECT '票证损失' AS YWLB, SQDW_DM AS JG_DM, PZSSBGDBH AS BH      FROM PZ_SSPZSSBGDZB     WHERE ZFBZ_1 = 'N'       AND ZSRQ_3 IS NULL       AND ZSR_DM IS NULL    UNION ALL    SELECT '票证销毁' AS YWLB, BBDW_DM AS JG_DM, SSPZXHSQBH AS BH      FROM PZ_SSPZXHSQZB     WHERE ZFBZ_1 = 'N'       AND ZSRQ IS NULL       AND ZSR_DM IS NULL    UNION ALL    SELECT '票证交接' AS YWLB, SWJG_DM AS JG_DM, SSPZJJBBH AS BH      FROM PZ_SSPZJJB     WHERE ZFBZ_1 = 'N'       AND FHR_DM IS NULL       AND FHRQ IS NULL)  SELECT * FROM TB1 WHERE JG_DM = ?" tables="PZ_FLZ,PZ_SSPKJBDZB,PZ_SSPZJXB,PZ_SSPZJCQDZB,PZ_SSPZTYZFZB,PZ_SSPZSSBGDZB,PZ_SSPZXHSQZB,PZ_SSPZJJB" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000386_countkjbpz" sql="SELECT T.PZZL_DM,         T.PZZG_DM,         SUM(T.PZSL) AS PZSL,         SUM(T.PZSL) AS BQTYS,         SUM(T.SKJE) AS SKJE,         SUM(T.KJZFSL) AS KJZFSL,         SUM(T.KJZFSL) AS BQZFS    FROM V_ZS_PZ_PZSYQK T   WHERE T.SJXHRQ BETWEEN TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS') AND         TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS')     AND (T.SDDWDJXH = ? OR T.KPR_DM = ?)     AND T.PZZT_DM IN ('02', '03')     AND #macroparam#     AND NOT EXISTS   (SELECT *            FROM PZ_SSPZJBWXZQD T1           WHERE T1.PZSYQKUUID = T.PZSYQKUUID             AND T1.YPRUUID = ?)     AND (1 = #macroparam# OR T.PZZL_DM = ?)     AND (1 = #macroparam# OR T.PZZG_DM = ?)     AND (1 = #macroparam# OR TO_NUMBER(T.PZQSHM) &gt;= TO_NUMBER(?))     AND (1 = #macroparam# OR TO_NUMBER(T.PZZZHM) &lt;= TO_NUMBER(?))   GROUP BY T.PZZL_DM, T.PZZG_DM   ORDER BY T.PZZL_DM, T.PZZG_DM" tables="V_ZS_PZ_PZSYQK,PZ_SSPZJBWXZQD" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000350_getcxpzgdmxxx" sql="select * from pz_qtdzgdmxb t where t.pzgduuid=?" tables="pz_qtdzgdmxb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000312_queryqtdzlfdzbbyqtdzcd" sql="select zb.qtdzlfduuid,
+         zb.qtdzlfdbh,
+         zb.lfdlx_dm,
+         zb.ffflx_dm,
+         zb.fff_dm,
+         zb.lqflx_dm,
+         zb.lqf_dm,
+         zb.rkrq,
+         zb.lqrxm,
+         zb.ffrxm
+    from pz_qtdzlfdzb zb
+   where zb.zfbz_1 = 'N'
+     and zb.lfdlx_dm != '5'
+     and (1 = #macroparam# or zb.qtdzlfdbh = ?)
+     and (1 = #macroparam# or zb.fff_dm = ?)
+     and (1 = #macroparam# or zb.lqf_dm = ?)
+     and (1 = #macroparam# or zb.rkrq &gt;=to_Date(?, 'yyyy-mm-dd HH24:mi:ss'))
+     and (1 = #macroparam# or zb.rkrq &lt;=to_Date(?, 'yyyy-mm-dd HH24:mi:ss'))" tables="pz_qtdzlfdzb" />
+<!--  -->
+<sql key="common_sbzs000076_queryqtdzswjgzlzg" sql="SELECT ZL.QTDZZL_DM AS CODE,
+       ZL.QTDZZLMC AS CAPTION,
+       '' AS PCODE,
+       ZL.WHPBZ,
+       ZL.WBPZBZ,
+       ZL.PHCD,
+       ZL.WZGBZ
+  FROM DM_PZ_QTDZZL ZL
+UNION ALL
+SELECT ZG.QTDZZG_DM AS CODE,
+       ZG.QTDZZG AS CAPTION,
+       ZG.QTDZZL_DM AS PCODE,
+       '' AS WHPBZ,
+       '' AS WBPZBZ,
+       0 AS PHCD,
+       '' AS WZGBZ
+  FROM CS_PZ_QTDZZGB ZG
+ WHERE SYSDATE BETWEEN ZG.YXQSRQ AND
+       NVL(ZG.YXZZRQ, TO_DATE('9999-12-31', 'yyyy-mm-dd'))" tables="DM_PZ_QTDZZL,CS_PZ_QTDZZGB" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000335_queryqtdzjbdforgz" sql="select t.qtdzjbduuid yspzhm,
+		       t.qtdzjbdbh   yspzbh1,
+		       t.jbrq_1      tfrq
+		  from pz_qtdzjbdzb t
+		 where t.lrr_dm = ?
+		   and t.zfbz_1 != 'Y'
+		   and t.sfshtgbz='Y'
+	     and t.cxbz != 'Y'
+ 			 and t.jbrq_1 between ? and ?  
+       and not exists(select 1 from pz_qtdzgztzs a where t.qtdzjbduuid=a.yspzhm and a.tybz = 'N' and a.yxbz='Y')
+     and not exists (select 1 from pz_qtdzflz b where b.yspzhm = t.qtdzjbduuid and b.xhuuid is null and b.tzlx_dm in ('1','2'))" tables="pz_qtdzjbdzb" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000338_queryqtdzgztzsbyqtdzcd" sql="select * from pz_qtdzgztzs s where (s.fqpzdw_dm =? or s.jspzdw_dm =? ) 
+            and (1 = #macroparam# or s.gztzsbh = ?)
+            and (1 = #macroparam# or s.rq &gt;=to_Date(?, 'yyyy-mm-dd HH24:mi:ss'))
+            and (1 = #macroparam# or s.rq &lt;=to_Date(?, 'yyyy-mm-dd HH24:mi:ss'))" tables="pz_qtdzgztzs" />
+<!--  -->
+<sql key="hdxt_sbzs_pz000315_queryqtdzlfdmxbyqtdzcd" sql="select mx.*
+  from pz_qtdzlfdzb zb, pz_qtdzlfdmx mx
+ where zb.qtdzlfduuid = mx.qtdzlfduuid
+   and zb.qtdzlfdbh = ?
+" tables="pz_qtdzlfdzb,pz_qtdzlfdmx" />
+<!--  -->
+<sql key="common_sbzs000133_getpzsfbyswrydm" sql="select t.pzglyuuid as czyuuid,         '11' as yprlx_dm,         t.pzhsjg_dm,         '' as yprmc,         null as djxh    from pz_pzgly t, dm_qx_swrysf a   where t.pzgly_dm = ?     and t.pzhsjg_dm = a.sfswjg_dm     and a.swrysf_dm = ?     and t.yxbz = 'Y'  union all  select t1.ypruuid as czyuuid, t1.yprlx_dm, t1.pzhsjg_dm, t1.yprmc, t1.djxh    from pz_ypr t1, dm_qx_swrysf a   where t1.swry_dm = ?     and t1.pzhsjg_dm = a.sfswjg_dm     and t1.yprlx_dm &lt;&gt; '12'     and a.swrysf_dm = ?     AND t1.yxbz = 'Y'  union all  select t1.ypruuid as czyuuid, t1.yprlx_dm, t1.pzhsjg_dm, t1.yprmc, t1.djxh    from pz_ypr t1   where t1.swry_dm = ?     and t1.yprlx_dm = '12'     and t1.yxbz = 'Y'" tables="pz_pzgly,dm_qx_swrysf,pz_ypr" />
+</sql-full>

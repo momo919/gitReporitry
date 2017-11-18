@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql-full>
+<!--  -->
+<sql key="yyjc_skyxt000002_cxjdpzxx" sql="select t.qddm, t.mqjddm, t.jyjdbm, t.fwbm, t.jrfs_dm, t.swjg_dm
+  from cs_zs_sky_jrpz t
+ where t.mqjddm = ?
+   and t.qddm = ?" tables="cs_zs_sky_jrpz" />
+<!--  -->
+<sql key="yyjc_skyxt000003_querybwcspz" sql="select *
+  from (select t.skyjylx_dm, t.zwmc, t.zwdm, t.bb_1
+          from cs_zs_sky_bwcspz t
+         where t.skyjylx_dm = ?
+           and t.yxbz = 'Y'
+           and t.xybz = 'Y'
+           AND T.SWJG_DM IN
+               (select jg.swjg_dm
+                  from dm_gy_swjg jg
+                 start with jg.swjg_dm = ?
+                connect by prior jg.sjswjg_dm = jg.swjg_dm)
+         order by swjg_dm desc)
+ where rownum = 1
+" tables="cs_zs_sky_bwcspz" />
+<!--  -->
+<sql key="yyjc_skyxt000001_cxskyjypz" sql="select qddm, mqjddm, jyjdbm, fwbm, jrfs_dm, swjg_dm
+  from (select t.qddm, t.mqjddm, t.jyjdbm, t.fwbm, t.jrfs_dm, t.swjg_dm
+          from cs_zs_sky_jrpz t
+         where  t.swjg_dm in
+               (select swjg_dm
+                  from dm_gy_swjg j
+                 start with j.swjg_dm = ?
+                connect by prior j.sjswjg_dm = j.swjg_dm)
+           and t.xybz = 'Y'
+           and t.yxbz = 'Y'
+         order by t.swjg_dm desc)
+ where rownum = 1" tables="cs_zs_sky_jrpz" />
+</sql-full>

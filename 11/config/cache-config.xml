@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<multi-level-cache>
+
+	<cache-component>
+		<!-- RDBMS型缓存配置中的dataSource 属性为持久层中配置的数据源名；Key/Value型缓存没有后续缓存时配置成空 -->
+
+		<cache name="LocalCache" nextCache=""
+			manager="com.css.sword.multiLevelCache.keyValueSystem.localCache.SwordLocalCacheManager"
+			dataManager="com.css.sword.multiLevelCache.keyValueSystem.SwordKVCacheDataManager" memo="本地哈希缓存" />
+			
+		<!-- Memcached的结点分布算法分为三种:Default(key的哈希值) Ketama(一致性散列)和Election(选举散列)-->
+	<!--
+		<cache name="MemcachedCache" nextCache="TimestenCache"
+			manager="com.css.sword.multiLevelCache.keyValueSystem.memcached.SwordMemcachedCacheManager"
+			dataManager="com.css.sword.multiLevelCache.keyValueSystem.SwordKVCacheDataManager" 
+			servers="127.0.0.1:33000" sessionLocatorMode="default" singleClient="Y" 
+			autoFailover="Y" maxTries="10" memo="Memcached集群缓存"/>
+			
+		<cache name="CoherenceCache" nextCache="TimestenCache"
+			manager="com.css.sword.multiLevelCache.keyValueSystem.coherence.SwordCoherenceCacheManager"
+			dataManager="com.css.sword.multiLevelCache.keyValueSystem.SwordKVCacheDataManager" memo="Weblogic Coherence集群缓存"/>
+
+		<cache name="TimestenCache" dataSource="timesten"
+			manager="com.css.sword.multiLevelCache.rdbms.timesten.SwordTimestenManager" memo="Oracle Timesten内存数据库" />
+	-->
+	</cache-component>
+
+</multi-level-cache>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+	<servlet>
+		<servlet-name>SwordPlatformWebtLoader</servlet-name>
+		<servlet-class>com.css.sword.webserver.StartPlatformServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+		<init-param>
+			<param-name>sword.server.name</param-name>
+			<param-value>myserver</param-value>
+		</init-param>
+	</servlet>
+</web-app>

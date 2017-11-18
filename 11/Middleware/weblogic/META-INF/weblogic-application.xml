@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<weblogic-application xmlns="http://www.bea.com/ns/weblogic/90"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<prefer-application-packages>
+		<package-name>antlr.*</package-name>
+		<package-name>ojdbc6.jar</package-name>
+	</prefer-application-packages>
+	<listener>
+		<listener-class>com.css.sword.platformbinding.weblogic.PlatformListener</listener-class>
+	</listener>
+</weblogic-application>

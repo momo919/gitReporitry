@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql-full>
+    <!-- 用户信息 begin -->
+    <sql key="pzglQueryUserPOById" 
+         sql="select * from PZGL_DM_USER where USER_ID= ? "
+         tables="PZGL_DM_USER" />
+         
+    <sql key="pzglQueryUserInfoById" 
+         sql="select u.*, gu.group_id from pzgl_dm_user u , pzgl_group_user gu
+                where u.user_id = gu.user_id
+                and u.user_id = ? "
+         tables="PZGL_DM_USER,PZGL_GROUP_USER" />
+    
+    <sql key="pzglQueryAllUser" 
+         sql="select * from PZGL_DM_USER where 1=? "
+         tables="PZGL_DM_USER" />
+    
+    <sql key="pzglQueryUserIdList" 
+         sql="select user_id from pzgl_dm_user"
+         tables="pzgl_dm_user" />
+    
+    <sql key="pzglInsertUser" 
+         sql="insert into pzgl_dm_user (user_id, user_name, user_pwd, is_admin) values (?,?,?,?)"
+         tables="pzgl_dm_user" />
+         
+    <sql key="pzglUpdateGroupByGroupId" 
+         sql="update pzgl_dm_group set group_name = ?, group_parent_id=?, memo=? where group_id = ?"
+         tables="pzgl_dm_user" />
+         
+    <sql key="pzglUpdateUser" 
+         sql="update pzgl_dm_user set user_name=?,user_pwd=?,is_admin=? where user_id=?"
+         tables="pzgl_dm_user" />
+         
+    <sql key="pzglDeleteUserGroup" 
+         sql="delete pzgl_group_user where user_id=? "
+         tables="pzgl_group_user" />
+         
+    <sql key="pzglDeleteUserById" 
+         sql="delete pzgl_dm_user where user_id=? "
+         tables="pzgl_dm_user" />
+         
+    <sql key="pzglModifyUserPwd" 
+         sql="update pzgl_dm_user set user_pwd=? where user_id=? "
+         tables="pzgl_dm_user" />
+    
+    <!-- 用户信息 end -->
+         
+    <!-- 功能树信息 begin -->
+    <sql key="pzglQueryGns" 
+         sql="select * from PZGL_DM_GNS order by GNS_ID"
+         tables="PZGL_DM_GNS" />
+    <!-- 功能树信息 end -->
+         
+    <!-- 业务组信息 begin -->
+    <sql key="pzglQueryAllGroup" 
+         sql="select t.group_id as code, t.group_name  as caption, t.group_parent_id as pcode, 'select' as type from PZGL_DM_GROUP t order by GROUP_ID"
+         tables="PZGL_DM_GROUP" />
+         
+    <sql key="pzglQueryAllGroupTree" 
+         sql="select t.group_id as code, t.group_name  as caption, '0' as pcode, 'select' as type from PZGL_DM_GROUP t order by GROUP_ID"
+         tables="PZGL_DM_GROUP" />
+    
+    <sql key="pzglQueryGroupZmmcById" 
+         sql="select group_zmmc from PZGL_DM_GROUP where group_id = ?"
+         tables="PZGL_DM_GROUP" />
+         
+    <sql key="pzglQueryAllGroupPO" 
+         sql="select * from PZGL_DM_GROUP t order by to_number(t.group_id)"
+         tables="PZGL_DM_GROUP" />
+         
+    <sql key="pzglQueryGroupListByGroupId" 
+         sql="select * from PZGL_DM_GROUP t where t.group_id = ? "
+         tables="PZGL_DM_GROUP" />
+         
+    <sql key="pzglDeleteGroupUsersByGroupId" 
+         sql="delete PZGL_GROUP_USER t where t.group_id = ? "
+         tables="PZGL_GROUP_USER" />
+         
+    <sql key="pzglDeleteGroupByGroupId" 
+         sql="delete PZGL_DM_GROUP t where t.group_id = ? "
+         tables="PZGL_DM_GROUP" />
+         
+    <sql key="pzgl_group_insert" 
+         sql="insert into PZGL_DM_GROUP (group_id,group_name,group_parent_id,memo) values(?,?,?,?)"
+         tables="PZGL_DM_GROUP" />
+         
+    <sql key="pzgl_group_user_insert" 
+         sql="insert into PZGL_GROUP_USER (user_id, group_id) values (?,?)"
+         tables="PZGL_GROUP_USER" />
+         
+    <sql key="pzgl_group_user_delete" 
+         sql="delete from PZGL_GROUP_USER where user_id = ? and group_id = ?"
+         tables="PZGL_GROUP_USER" />
+         
+    <sql key="pzglQueryGroupUsers" 
+         sql=" select t1.user_id,
+                    t1.user_name,
+                    case when (t1.user_id = t2.user_id) then  'go' else 'ready' end as flag
+               from PZGL_DM_USER t1
+               left outer join PZGL_GROUP_USER t2
+                 on (t1.user_id = t2.user_id and t2.group_id = ?)"
+        tables="PZGL_DM_USER,PZGL_GROUP_USER" />
+        
+    <sql key="pzglGetMaxGroupId"
+         sql="select max(to_number(group_id)) as max_group_id from pzgl_dm_group"
+         tables="pzgl_dm_group" />
+         
+    <sql key="pzglDeleteGroupUsersByGroupIdAndUserId"
+         sql="delete from PZGL_GROUP_USER where group_id = ? and user_id = ?"
+         tables="PZGL_GROUP_USER" />
+         
+    <sql key="pzglDeleteExceptionConfigByGroupId"
+         sql="delete from PZGL_EXCEPTION_CONFIG where group_id = ?"
+         tables="PZGL_EXCEPTION_CONFIG" />
+    
+    <sql key="pzglUpdateChacheTableVersionByTableName"
+         sql="update T_XT_HCBXX t set t.version = t.version+1 where t.table_name = ?"
+         tables="T_XT_HCBXX" />
+         
+    <sql key="pzglGetUserGroupList"
+         sql="select t2.group_id code,t2.group_name caption from PZGL_GROUP_USER t1, PZGL_DM_GROUP t2
+              where t1.group_id = t2.group_id
+              and t1.user_id = ? "
+         tables="PZGL_GROUP_USER,PZGL_DM_GROUP"></sql>
+            
+            
+    <!-- 业务组信息 end -->
+    <sql key="pzglQueryAllSqlGroup"
+         sql="select t.group_id from PZGL_SQL t group by t.group_id
+              union
+              select t.group_id from Pzgl_Exception t group by t.group_id"
+         tables="PZGL_SQL"></sql>
+    
+    <sql key="pzglQuerySQLAllList" 
+         sql="select t.*
+          from PZGL_SQL t
+         where (1=? or sql_key like '%'||?||'%') 
+         and (1=?  #macroparam# ) 
+         and (1=? or creator=?) 
+         and (1=? or editdate>=to_date(?, 'yyyy-mm-dd hh24:mi:ss')) 
+         and (1=? or to_date(?, 'yyyy-mm-dd hh24:mi:ss')>=editdate) 
+         and branch_id = ?
+         and yx_bj = ?
+         and 1 > (select count(*)
+              from PZGL_SQL
+             where jc_sql_version > t.jc_sql_version 
+             and sql_key = t.sql_key
+             and branch_id = t.branch_id
+             and (1 = ? or to_date(?, 'yyyy-mm-dd hh24:mi:ss') >= editdate)
+             )
+         "
+         tables="pzgl_sql" />
+    
+    <!-- SQL配置信息管理 begin-->
+    <sql key="pzglExportSQLConfig" 
+         sql="select t.sql_key,t.table_names,t.sql,t.bsql
+          from PZGL_SQL t
+         where (1=? or sql_key like '%'||?||'%') 
+         and (1=?  #macroparam# ) 
+         and (1=? or creator=?) 
+         and (1=? or editdate>=to_date(?, 'yyyy-mm-dd hh24:mi:ss')) 
+         and (1=? or to_date(?, 'yyyy-mm-dd hh24:mi:ss')>=editdate) 
+         and branch_id = ?
+         and yx_bj = ?
+         and 1 > (select count(*)
+              from PZGL_SQL
+             where jc_sql_version > t.jc_sql_version 
+             and sql_key = t.sql_key
+             and branch_id = t.branch_id
+             and (1 = ? or to_date(?, 'yyyy-mm-dd hh24:mi:ss') >= editdate)
+             )
+         "
+         tables="pzgl_sql" />
+         
+    <sql key="pzglPublishSQLConfig" 
+         sql="select * from jcqd_publish_sql where group_id = ? and yx_bj = 'Y'"
+         tables="jcqd_publish_sql" />
+         
+    <sql key="pzglPublishSQLConfigOper" 
+         sql="select * from jcqd_publish_sql where group_id = ? and jc_operate_type is not null"
+         tables="jcqd_publish_sql" />
+         
+    <sql key="pzglPublishExceptionConfig" 
+         sql="select * from jcqd_publish_exception where group_id = ? and yx_bj = 'Y'"
+         tables="jcqd_publish_exception" />
+    
+    <sql key="pzglPublishExceptionConfigOper" 
+         sql="select * from jcqd_publish_exception where group_id = ? and jc_operate_type is not null"
+         tables="jcqd_publish_exception" />
+         
+	<sql key="querysqlbysqlkey"
+    	sql="SELECT * FROM pzgl_sql t WHERE t. jc_sql_version=(SELECT MAX(jc_sql_version)FROM pzgl_sql t WHERE t.sql_key=?) AND t.sql_key=?"
+    	tables="pzgl_sql"/>
+         
+         <!-- 待删除 -->
+    <sql key="pzglQuerySQLList" 	
+         sql="select t.sql_key, t.table_names,t.memo,t.group_id,t.jc_sql_version,t.branch_id
+          from PZGL_SQL t
+         where (1=? or sql_key like '%'||?||'%') 
+         and (1=? #macroparam#) 
+         and (1=? or creator=?) 
+         and (1=? or editdate>=to_date(?, 'yyyy-mm-dd hh24:mi:ss')) 
+         and (1=? or to_date(?, 'yyyy-mm-dd hh24:mi:ss')>=editdate) 
+         and branch_id = ?
+         and yx_bj = ?
+         and 1 > (select count(*)
+              from PZGL_SQL
+             where jc_sql_version > t.jc_sql_version 
+             and sql_key = t.sql_key
+             and branch_id = t.branch_id
+             and (1 = ? or to_date(?, 'yyyy-mm-dd hh24:mi:ss') >= editdate)
+             )
+         order by editdate desc"
+         tables="pzgl_sql" />
+         
+    <sql key="pzglQuerySQLStateList" 
+         sql="select t.sql_key, t.table_names,t.memo,t.group_id,t.jc_sql_version,t.branch_id,t.sql,t.sql_state,t.yx_bj
+          from PZGL_SQL t
+         where (1=? or sql_key like '%'||?||'%') 
+         and (1=? #macroparam#) 
+         and (1=? or creator=?) 
+         and (1=? or editdate>=to_date(?, 'yyyy-mm-dd hh24:mi:ss')) 
+         and (1=? or to_date(?, 'yyyy-mm-dd hh24:mi:ss')>=editdate) 
+         and (1=? or sql_state in(#macroparam#))
+         and branch_id = ?
+         and (1=? or yx_bj=?)
+         and 1 > (select count(*)
+              from PZGL_SQL
+             where jc_sql_version > t.jc_sql_version 
+             and sql_key = t.sql_key
+             and branch_id = t.branch_id
+             and (1 = ? or to_date(?, 'yyyy-mm-dd hh24:mi:ss') >= editdate)
+             and (1 = ? or sql_state in(#macroparam#))
+             )
+         order by editdate desc"
+         tables="pzgl_sql" />
+         
+         
+    <sql key="pzglQueryKeyList" 
+         sql="select sql_key from pzgl_sql"
+         tables="pzgl_sql" />
+         
+    <sql key="pzglUpdateSQL" 
+         sql="update pzgl_sql set sql_key=?,group_id=?,sql=?,table_names=?,memo=?,editor=?,editdate=? where sql_key=?"
+         tables="pzgl_sql" />
+    
+    <sql key="pzglUpdateSQLState" 
+         sql="update pzgl_sql set sql_state=? where exists(
+         	select * from jcqd_mainlist t1, jcqd_sqllist t2 
+         	where t1.jc_mainlist_id = t2.jc_mainlist_id
+         	and t2.sql_key = pzgl_sql.sql_key 
+         	and t2.jc_sql_version = pzgl_sql.jc_sql_version
+         	and t2.branch_id = pzgl_sql.branch_id
+         	and t1.jc_mainlist_id = ?)"
+         tables="pzgl_sql" />
+         
+     <sql key="pzglSingleUpdateSQLState" 
+         sql="update pzgl_sql set sql_state=? where sql_key=? and jc_sql_version=? and pzgl_sql.branch_id=?"
+         tables="pzgl_sql" />
+         
+    <sql key="pzglGetSQLConfigInfoByKey1"
+         sql="select * from pzgl_sql  where sql_key = ? and jc_sql_version = ? and branch_id = ?"
+         tables="pzgl_sql"/>
+         
+    <sql key="pzglGetSQLConfigInfoByKey"
+         sql="select * from pzgl_sql  where sql_key = ? and jc_sql_version=? and branch_id=?"
+         tables="pzgl_sql"/>
+         
+    <sql key="pzglGetTopVersionSQLConfigInfoByKey"
+         sql="select t.* from pzgl_sql t where t.sql_key = ? 
+         and t.branch_id = ?
+         and t.yx_bj = 'Y'
+         and 1 > (select count(*)
+                  from PZGL_SQL
+                  where sql_key = t.sql_key
+                  and branch_id = t.branch_id
+                  and jc_sql_version > t.jc_sql_version) "
+         tables="pzgl_sql"/>
+         
+    <sql key="pzglTopVersionSqlBykey"
+         sql="select t.* from pzgl_sql t 
+              where t.sql_key = ?
+              and branch_id = ?
+              and 1 > (select count(*)
+                  from PZGL_SQL
+                 where jc_sql_version > t.jc_sql_version 
+                 and sql_key = t.sql_key
+                 and branch_id = t.branch_id)"
+         tables="pzgl_sql"/>
+         
+    <sql key="pzgl_sql_insert"
+         sql="insert into PZGL_SQL 
+            (sql_key,Sql, Table_Names, Memo, Group_Id, Creator, Createdate, Editor, Editdate,jc_sql_version,yx_bj，branch_id)
+            values(?,?,?,?,?,?,?,?,?,?,?,?)"
+         tables="pzgl_sql"/>
+         
+    <sql key="pzgl_sql_delete_by_sqlkey"
+         sql="delete from PZGL_SQL 
+            where sql_key = ?"
+         tables="pzgl_sql"/>
+         
+    <sql key="pzgl_sql_logic_delete_by_sqlkey"
+         sql="update pzgl_sql set yx_bj = ?, editor = ? ,editdate = ? 
+         where sql_key = ? 
+         and jc_sql_version = ?"
+         tables="pzgl_sql"/>
+    
+    
+    <!-- SQL配置信息管理 end-->
+    
+    <!-- 异常配置信息管理 2-->
+    <sql key="pzglGetExceptionConfigInfoById" 
+         sql="select * from PZGL_EXCEPTION_CONF t where t.pzgl_expconfig_id = ? for update"
+         tables="PZGL_EXCEPTION_CONF" />
+         
+    <sql key="pzglUpdateExceptionConfIndexMaxById" 
+         sql="update PZGL_EXCEPTION_CONF set PZGL_EXP_INDEX_MAX = PZGL_EXP_INDEX_MAX + 1 where pzgl_expconfig_id = ?"
+         tables="PZGL_EXCEPTION_CONF" />
+         
+         
+    <!-- 根据KEY查询异常配置信息 -->   
+    <sql key="pzglQueryExceptionInfoById"  
+         sql="select * from PZGL_EXCEPTION where exception_key = ? and jc_exp_version = ?" 
+         tables="PZGL_EXCEPTION" ></sql>
+         
+    <sql key="pzglQueryExceptionInfoById1"  
+         sql="select * from PZGL_EXCEPTION where exception_key = ?" 
+         tables="PZGL_EXCEPTION" ></sql>
+    
+    <sql key="pzglQueryTopVersionExceptionInfoById"  
+    sql="select t.* from PZGL_EXCEPTION t
+         where t.exception_key = ? 
+         and 1 > ( select count(*) 
+                   from PZGL_EXCEPTION
+                   where jc_exp_version > t.jc_exp_version and exception_key = t.exception_key) 
+         " 
+    tables="PZGL_EXCEPTION"></sql>
+         
+    <sql key="pzgl_insert_exception"  
+    sql="insert into pzgl_exception 
+        (exception_key,exception,group_id,creator,createdate,editor,editdate,jc_exp_version,yx_bj)
+        values (?,?,?,?,?,?,?,?,?)" 
+    tables="PZGL_EXCEPTION"></sql>
+         
+    <sql key="pzgl_logic_delete_excetption_bykey"  
+    sql="update PZGL_EXCEPTION set yx_bj = ? , editor=?,editdate=? 
+         where exception_key = ? and jc_exp_version=?" 
+    tables="PZGL_EXCEPTION"></sql>
+    
+    <!-- 异常配置信息管理 begin-->
+    <sql key="pzglGetExceptionConfigInfoByGroupId" 
+         sql="select * from PZGL_EXCEPTION_CONFIG where GROUP_ID = ?"
+         tables="PZGL_EXCEPTION_CONFIG" />
+         
+    <sql key="pzglUpdateExceptionConfigIndexMaxByGroupId" 
+         sql="update PZGL_EXCEPTION_CONFIG set PZGL_EXP_INDEX_MAX = PZGL_EXP_INDEX_MAX + 1 where GROUP_ID = ?"
+         tables="PZGL_EXCEPTION_CONFIG" />
+         
+    <sql key="pzglQueryExceptionListByKey" 
+         sql="select t.group_id, t.exception_key, t.exception, t.creator, t.editor, t.jc_exp_version from PZGL_EXCEPTION t
+         where ('!exception' = ? or t.exception like '%'||?||'%') 
+                and ('!groupId' = ? #macroparam# ) 
+                and ('!exceptionKey' = ? or t.exception_key = ?) 
+                and ('!creator' = ? or t.creator = ?) 
+                and ('!updateTimeFrom' = ? or t.editdate >= to_date(?, 'yyyy-mm-dd hh24:mi:ss'))
+                and ('!updateTimeTo' = ? or to_date(?, 'yyyy-mm-dd hh24:mi:ss') >= t.editdate) 
+                and t.yx_bj = ?
+                and 1 > (select count(*)
+                  from PZGL_EXCEPTION
+                 where jc_exp_version > t.jc_exp_version 
+                 and exception_key = t.exception_key
+                 and ('!updateTimeTo' = ? or to_date(?, 'yyyy-mm-dd hh24:mi:ss') >= t.editdate) )
+                order by t.editdate desc"
+         tables="PZGL_EXCEPTION" />
+         
+    <sql key="pzglTopVersionExceptionBykey"
+         sql="select t.* from pzgl_exception t
+              where exception_key = ?  
+              and 1 > (select count(*)
+                  from PZGL_EXCEPTION
+                 where jc_exp_version > t.jc_exp_version and exception_key = t.exception_key)"
+         tables="PZGL_EXCEPTION"/>
+    
+    <sql key = "pzglUpdateExceptionConfigInfoByGroupId"
+         sql = "update PZGL_EXCEPTION set exception_key=?, exception=?, createdate=?, editor=?, editdate=?
+               where group_id=?"
+         tables = "PZGL_EXCEPTION" />
+         
+    <sql key = "pzglDeleteExceptionConfigInfoByGroupId"
+         sql = "delete from PZGL_EXCEPTION where group_id=?"
+         tables = "PZGL_EXCEPTION" />
+         
+    <sql key = "pzglGetExceptionRepeatRowCount"
+         sql = "select 1 from PZGL_EXCEPTION t where t.exception_key = ? and t.exception_key != ?"
+         tables = "PZGL_EXCEPTION" />
+    
+    <!-- 更新保存 -->
+    <sql key = "pzglUpdateExceptionConfigInfoByKey"
+         sql = "update PZGL_EXCEPTION set exception_key=?, group_id=?, exception=?,  editor=?, editdate=?
+               where exception_key=?"
+         tables = "PZGL_EXCEPTION" />
+    
+    <sql key = "pzglQueryExceptionConfigByGroupId"
+         sql = "select * from pzgl_exception_config where group_id = ?"
+         tables = "pzgl_exception_config" />
+         
+    <sql key = "pzglExceptionConfInsert"
+         sql = "insert into PZGL_EXCEPTION_CONF (pzgl_expconfig_id,pzgl_exp_code_length, pzgl_exp_index_max) 
+         values (?,?,?)"
+         tables = "pzgl_exception_config" />
+         
+    <!--end-->
+    
+    <!-- 单据管理start -->
+    <sql key="bill_gl_QueryBillList" sql="select * from SWORD_BILLRULE where (1=? or billCode like '%'||?||'%') and (1=? or billMC like '%'||?||'%') and (1=? or qysj >= to_date(?,'yyyy-mm-dd')) and (1=? or to_date(?,'yyyy-mm-dd') >= qysj)" tables="SWORD_BILLRULE"/>
+    <sql key="insertBill" sql="insert into SWORD_BILLRULE (billcode,billmc,rqgs,czlx,minxh,qysj,xhcd,template,sflx,maxxh) values (?,?,?,?,?,?,?,?,?,?)" tables="SWORD_BILLRULE"/>
+    <sql key="queryBillListByKey" sql="select * from SWORD_BILLRULE where (1=? and billcode = ? )" tables="SWORD_BILLRULE"/>
+    <!--  <sql key="updateBill" sql="update SWORD_BILLRULE set billcode=?,billmc=?,rqgs=?,czlx=?,minxh=?,qysj=?,xhcd=?,template=?,sflx=?,maxxh=? where (1=? and billcode = ?)" tables="SWORD_BILLRULE"/>-->
+    <!-- 单据管理end -->
+    
+    
+    <!-- 业务域打包start -->
+    <sql key="queryPZGLBSWZ" sql="select b.* from PZGL_BSWZ b where b.PUBLISH_CONTENT_DM = ?" tables="PZGL_BSWZ"/>
+    <!-- 业务域打包end -->
+    
+</sql-full>

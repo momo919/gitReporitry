@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     2012-5-25 上午12:06:41                                                        
+
+     preapare_publish    
+     do any thing for publish
+                   
+     REGER                                                                
+     ====================================================================== -->
+<project name="build_sqlkey" default="get_config_file">
+	<description>
+            do any thing for publish
+    </description>
+
+	<tstamp>
+		<format property="NOW" pattern="yyyy-MM-dd HH:mm:ss" locale="cn" />
+	</tstamp>
+
+	<property name="version.type" value="trunk" />
+	<path id="getconfigfile_lib">
+		<fileset dir="${basedir}/config">
+			<include name="sword-getConfig.jar" />
+		</fileset>
+	</path>
+<path id="librelease_lib">
+		<fileset dir="${basedir}">
+			<include name="swordcore/**/*.jar" />
+		</fileset>
+	</path>
+	<property name="getconfigfile_jar" 	refid="getconfigfile_lib" />
+	<property name="lib_jar" 	refid="librelease_lib" />
+	
+	<target name="get_config_file" depends="get,zip_classes">
+        
+    </target>
+<!-- - - - - - - - - - - - - - - - - - 
+          target: get_config_file                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="get">
+		<java classname="com.css.sword.tools.pzgl.common.PzglExportConfigFileService">
+			<sysproperty key="sword.class.path" value="${getconfigfile_jar}"/>
+			<arg value="${basedir}/classes" />
+			<arg value="0"/>
+			<arg value=""/>
+			<arg value="ALL"/>
+			<classpath>
+				<pathelement path="${getconfigfile_jar}" />
+				<pathelement path="${lib_jar}" />
+				<fileset dir="${java.home}/lib">
+					<include name="**/*.jar" />
+				</fileset>
+				<fileset dir="${basedir}/config">
+					<include name="sword-getConfig.jar" />
+					<!-- add by zhangyq @ 20130701 -->
+					<include name="ant_patch.jar" />
+				</fileset>
+				<dirset dir="${basedir}">
+					<include name="config" />
+				</dirset>
+			</classpath>
+		</java>
+		<echo> Get Config finished ! </echo>
+		
+		
+	</target>
+	
+	<target name="zip_classes">
+         <zip destfile="${basedir}/../../ftp/classes.zip" basedir="${basedir}/classes"/>
+    </target>
+</project>

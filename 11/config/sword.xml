@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<sword-configuration>
+	<!-- 是否为ejb调用方式, 如果值为EJB则表示ejb远程调用方式，其他值为本地local调用 -->
+	<property name="ejb-delegate-model" value="LOCAL" />
+	<!--<property name="ejb-delegate-model" value="EJB" /> -->
+	<property name="running-model" value="develop" />
+	<!--<property name="running-model" value="product" /> -->
+	<property name="transaction-not-checked" value="cachehandler,login" />
+
+	<property name="sql-log" value="false" />
+
+	<!-- <property name="auto-finish-time" value="false" /> -->
+
+	<!-- <property name="ejb-session-check" value="false" /> -->
+
+	<!-- <property name="dbs-type" value="oracle" /> -->
+
+	<!-- <property name="mail-smtp-host" value="127.0.0.1" /> -->
+
+	<!-- <property name="monitor-switch" value="false" /> -->
+
+	<property name="swordSessionDataCreater" value="com.css.sword.extensions.portal.web.session.SwordSessionDataMH" />
+
+	<!-- 是否使用EJB3注解方式声明BO映射,默认情况下可无该属性使用注解方式 -->
+	<property name="use-annotated-boclass" value="true" />
+	
+
+	<!--====================== 集群配置 ========================== -->
+	<!-- 广播地址 -->
+	<!-- 在局域网中,注意本参数配置不要同其他应用的相关参数配置冲突,以免相互 -->
+	<!-- 影响 -->
+	<!--========================================================= -->
+	<!-- 必要参数 -->
+	<!-- dbreplication -->
+	<cluster state="off" type="memreplication" multicastadress="237.0.0.1"
+		multicastport="6666" packetlen="1024" timeout="10"
+
+		jdbc-url="jdbc:oracle:thin:@127.0.0.1:1521:orcl" jdbc-driver="oracle.jdbc.OracleDriver"
+		jdbc-username="lfw" jdbc-password="lfw"
+		jndi-factory="weblogic.jndi.WLInitialContextFactory" jndi-url="t3://127.0.0.1:8001"
+		jndi-dsname="replicationDS" />
+
+	<!--==================== 代码表缓存配置 ======================= -->
+	<!--========================================================= -->
+	<codecache state="on" update-cyc="10000" is-server="true"
+		lazy-load="true" lru-clean-cyc="10000" />
+
+	<!--===================== 定时任务管理 ======================== -->
+	<!--========================================================= -->
+	<scheduler state="off" />
+
+	<!--===================== EJB访问配置 ======================== -->
+	<!--========================================================= -->
+	<ejb jndi="DomainFacadeBean" factory="weblogic.jndi.WLInitialContextFactory"
+		url="t3://127.0.0.1:7001" />
+	<!-- ==================== 自定义错误跳转页面 ================== -->
+	<!-- <property name="errorPage" value="/error.jsp" /> -->
+
+	<!--
+		异常处理器，需要实现接口：ISwordExceptionResolver，不配置的话使用默认 SwordExceptionResolver
+	-->
+	<!--
+		<property name="exceptionResolver"
+		value="com.css.sword.platform.web.exception.SwordExceptionResolver" />
+	-->
+
+	<!-- JDelegate配置－－－开始 -->
+	<!--
+		以DestinationPool为结尾的属性都为S5系统连接池配置，格式为“连接池名=配置文件目录”，连接池配置文件以.jcoDestination结尾，
+		系统会自动扫描目录下所有以.jcoDestination结尾的文件
+		。要注意的是一定要有一个名为DefaultDestinationPool的连接池，缓存框架会使用默认源取数据
+	-->
+	<!--
+		proxy-server属性为接出服务器配置项，用于指定各连接池目录中的代理器配置文件名，不同的连接池目录可以有多个，但文件名相同
+	-->
+	<!--
+		access-adapter属性为接入服务器配置项，用于配置接入适配器
+		。配置接入服务器时一定要将DefaultDestinationPool单放一个配置目录，否则会出现重复
+		初始化很多连接，资源浪费。接接与接出服务器配置在一起时则不需要。
+	-->
+	<!--
+		JDelegate DefaultDestinationPool="jco_config"
+		proxy-server="s5gateway.proxy" access-adapter="s5gateway.adapter" /
+	<JDelegate DefaultDestinationPool="jco_config" />
+	-->
+	<!-- JDelegate配置－－－结束 -->
+
+<!--=====================================================Web与核心配置分割==================================================== -->	
+
+	<server-info>
+		<server-name name="myserver"
+			memo="系统的服务器名获取顺序：1.weblogic的config.xml配置的服务器名，2.sword.server.name环境变化的值，3.此参数值"/>
+		<rack-id id="myrack" memo="机架ID，用于支撑机架感知"/>
+
+		<running-model model="product" memo="生产模式，在此模式下会自动跳过很多的校验和提示"/>
+	<!-- 
+		<running-model model="test" memo="测试模式，在此模式下会自动跳过很多的校验和提示"/> 
+		<running-model model="develop" memo="开发模式，在此模式下会进行最严格的校验，以保证其它模式的正确运行"/> 
+	-->
+	</server-info>
+
+	<biz-exception-filter package="com.css" memo="业务异常过滤配置，用于过滤业务异常堆栈信息"/>
+
+	<service generate-type="running"
+		memo="服务组件配置信息:generate-type属性用于控制服务代理类的生成时机，startup表示服务器启动时生成，其它值表示首次调用时生成" >
+		<!-- 
+		<filter name="" beforeFilter="" afterFilter="" exceptionFilter=""/>
+		-->
+	</service>
+
+
+	<platform-event memo="平台事件配置">
+		<class-scanner extensionsLibs="C:/Users/岳龙/Desktop/11/config/sword-getConfig.jar " inclusionJars="(sword.+\.jar)|(gt3.+\.jar)"	inclusionClasses=".+" memo="类扫描框架配置">
+			<!--
+			<scanner annotation="ClusterCommunicationEventListenerScanner"
+				scanner="com.css.sword.clusterCommunication.SwordClusterCommunicationManagger" 
+				memo="集群事件监听器扫描器"/>  -->
+			 
+			<scanner annotation="CtrlClassScanner"
+				scanner="com.css.sword.platform.web.controller.CtrlClassScanner" 
+				memo="Web框架Ctrl类扫描器"/>  
+				
+		</class-scanner>
+	<!--
+		<started memo="平台启动完成事件处理器">
+			<listener listener="com.css.sword.manger.listener.CommandLineListener" memo="平台命令行监听器"/>
+		</started>
+	 
+		<stop memo="平台停止开始事件处理器">
+			<listener listener="com.css.sword.test.event.TestStopListener" abc="2" />
+		</stop>
+ 	-->
+	</platform-event>
+
+	<components memo="组件加载顺序：数据元组件、性能监控组件、服务管理组件、事务处理监控组件、多级缓存组件、集群通信组件、持久层组件、服务中介管理组件、缓存数据管理组件、工作流组件">
+	<!-- 
+		<component name="SwordPerformanceComponent"
+			component="com.css.sword.kernel.platform.component.performance.PerformanceManager"
+			servicePattern=".+" dataQueueCapacity="100" dataProcessCycle="500" memo="性能监控组件：用于采集、处理系统运行中的性能信息"/>
+		<component name="SwordMultiLevelCacheComponent"
+			component="com.css.sword.multiLevelCache.SwordCacheComponentManager" 
+			memo="多级数据缓存组件：用于提供多级数所缓存功能，支持透明同类型缓存产品切换" />
+ 	 -->
+		
+	<!-- 
+		<component name="SwordClusterCommunicationComponentManager"
+			component="com.css.sword.clusterCommunication.SwordClusterCommunicationComponentManager"
+			cluster-name="mycluster" memo="集群通信组件：用于提供应用集的集群内通信功能，为系统管理等功能提供基础支撑" />
+	-->
+
+		<component name="PersistenceComponentManager"
+			component="com.css.sword.persistence.component.SwordPersistenceComponentManager"
+			defaultDsName="SwordDS" memo="持久层组件：与数据元结构，提供数据持久化功能，并提供数据访问审计功能" />
+	
+
+	
+		<component name="MediationComponentManager"
+			component="com.css.sword.mediation.sender.component.MediationComponentManager" memo="服务中介管理组件：提供服务的全域路由支持"/>
+	<!-- 
+
+		<component name="SwordCacheDataManager"
+			lazyload="false" component="com.css.sword.multiLevelCache.SwordCacheDataManager" memo="缓存数据管理组件：用于管理各缓存组件的数据加载"/>
+			
+		<component name="WorkFlowInitManager"
+			component="com.css.sword.extensions.workflow.adapter.engine.WorkFlowInitManager"
+			default_ds_name="workflowdev" memo="工作流组件：用于支持工作流组件"/>
+
+		<component name="SwordServiceTestDataCollectorManager"
+			component="com.css.sword.unitTest.collector.SwordServiceTestDataCollectorManager" serviceNamePattern = "*"
+			collect-mode="All" memo="单元测试框架测试数据收集组件，支持First、Las和All三种测试数据收集模式"/>	 -->
+	</components>
+</sword-configuration>

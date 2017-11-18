@@ -1,0 +1,63 @@
+Buildfile: C:\Users\kombat\Workspaces\11\ant_build.xml
+
+get:
+     [java] 09:55:29,304 INFO [SwordPlatformManager] 开始获取系统相关信息
+     [java] 09:55:29,332 INFO [SwordPlatformManager] 开始启动Sword平台(2017-07-28 09:55:29)，服务器信息:
+     [java] 
+     [java] 	服务器-服务实例名: myserver
+     [java] 	服务器-服务结点名: null
+     [java] 	服务器-机架ID: myrack
+     [java] 	服务器-主机名/用户名/IP: kombat-PC / kombat / 10.23.7.139
+     [java] 	服务器-JVM进程编号: 63804
+     [java] 	服务器-运行模式: Product Mode
+     [java] 	Java虚拟机-操作系统: Windows 10 10.0(),amd64
+     [java] 	Java虚拟机-可用处理器数目: 4
+     [java] 	Java虚拟机-可使用的最大内存容量(M): 1755
+     [java] 	Java虚拟机-可使用的最大DirectMemory容量(M): 1755
+     [java] 	Java虚拟机-是否启用EPoll模式：false
+     [java] 	Java虚拟机-位置: C:\Program Files\Java\jdk1.8.0_65\jre
+     [java] 	Java虚拟机-VM启动参数: [-Dant.home=C:\apache-ant-1.10.1]
+     [java] 	Java虚拟机-信息: Oracle Corporation,1.8.0_65-b17,64bit,HotSpot 64-Bit Tiered Compilers,mixed mode
+     [java] 	Java虚拟机-BootClassPath: C:\apache-ant-1.10.1\lib\ant-launcher.jar;C:\Users\kombat\Workspaces\11\.\;C:\Program Files\Java\jdk1.8.0_65\lib\;C:\Program Files\Java\jdk1.8.0_65\lib\dt.jar;C:\Program Files\Java\jdk1.8.0_65\lib\tools.jar;C:\apache-ant-1.10.1\lib\ant-antlr.jar;C:\apache-ant-1.10.1\lib\ant-apache-bcel.jar;C:\apache-ant-1.10.1\lib\ant-apache-bsf.jar;C:\apache-ant-1.10.1\lib\ant-apache-log4j.jar;C:\apache-ant-1.10.1\lib\ant-apache-oro.jar;C:\apache-ant-1.10.1\lib\ant-apache-regexp.jar;C:\apache-ant-1.10.1\lib\ant-apache-resolver.jar;C:\apache-ant-1.10.1\lib\ant-apache-xalan2.jar;C:\apache-ant-1.10.1\lib\ant-commons-logging.jar;C:\apache-ant-1.10.1\lib\ant-commons-net.jar;C:\apache-ant-1.10.1\lib\ant-jai.jar;C:\apache-ant-1.10.1\lib\ant-javamail.jar;C:\apache-ant-1.10.1\lib\ant-jdepend.jar;C:\apache-ant-1.10.1\lib\ant-jmf.jar;C:\apache-ant-1.10.1\lib\ant-jsch.jar;C:\apache-ant-1.10.1\lib\ant-junit.jar;C:\apache-ant-1.10.1\lib\ant-junit4.jar;C:\apache-ant-1.10.1\lib\ant-launcher.jar;C:\apache-ant-1.10.1\lib\ant-netrexx.jar;C:\apache-ant-1.10.1\lib\ant-swing.jar;C:\apache-ant-1.10.1\lib\ant-testutil.jar;C:\apache-ant-1.10.1\lib\ant-xz.jar;C:\apache-ant-1.10.1\lib\ant.jar;C:\Program Files\Java\jdk1.8.0_65\lib\tools.jar
+     [java] 	Java虚拟机-ClassPath: C:\apache-ant-1.10.1\lib\ant-launcher.jar;C:\Users\kombat\Workspaces\11\.\;C:\Program Files\Java\jdk1.8.0_65\lib\;C:\Program Files\Java\jdk1.8.0_65\lib\dt.jar;C:\Program Files\Java\jdk1.8.0_65\lib\tools.jar;C:\apache-ant-1.10.1\lib\ant-antlr.jar;C:\apache-ant-1.10.1\lib\ant-apache-bcel.jar;C:\apache-ant-1.10.1\lib\ant-apache-bsf.jar;C:\apache-ant-1.10.1\lib\ant-apache-log4j.jar;C:\apache-ant-1.10.1\lib\ant-apache-oro.jar;C:\apache-ant-1.10.1\lib\ant-apache-regexp.jar;C:\apache-ant-1.10.1\lib\ant-apache-resolver.jar;C:\apache-ant-1.10.1\lib\ant-apache-xalan2.jar;C:\apache-ant-1.10.1\lib\ant-commons-logging.jar;C:\apache-ant-1.10.1\lib\ant-commons-net.jar;C:\apache-ant-1.10.1\lib\ant-jai.jar;C:\apache-ant-1.10.1\lib\ant-javamail.jar;C:\apache-ant-1.10.1\lib\ant-jdepend.jar;C:\apache-ant-1.10.1\lib\ant-jmf.jar;C:\apache-ant-1.10.1\lib\ant-jsch.jar;C:\apache-ant-1.10.1\lib\ant-junit.jar;C:\apache-ant-1.10.1\lib\ant-junit4.jar;C:\apache-ant-1.10.1\lib\ant-launcher.jar;C:\apache-ant-1.10.1\lib\ant-netrexx.jar;C:\apache-ant-1.10.1\lib\ant-swing.jar;C:\apache-ant-1.10.1\lib\ant-testutil.jar;C:\apache-ant-1.10.1\lib\ant-xz.jar;C:\apache-ant-1.10.1\lib\ant.jar;C:\Program Files\Java\jdk1.8.0_65\lib\tools.jar
+     [java] 	Java虚拟机-动态链接库搜索路径: C:\Program Files\Java\jdk1.8.0_65\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\apache-ant-1.10.1\bin;C:\app\kombat\product\11.2.0\dbhome_1\BIN;C:\Program Files (x86)\Common Files\Microsoft Shared\Windows Live;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\Lenovo\Fingerprint Manager Pro\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files\Java\jdk1.8.0_65\bin;C:\Program Files\Java\jdk1.8.0_65\jre\bin;C:\Program Files\TortoiseSVN\bin;C:\Users\kombat\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Rational\common;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;C:\Program Files\Common Files\Microsoft Shared\Windows Live;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Users\kombat\AppData\Roaming\npm;C:\Users\kombat\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Users\kombat\AppData\Local\Microsoft\WindowsApps;;.
+     [java] 	Java虚拟机-默认临时文件路径: C:\Users\kombat\AppData\Local\Temp\
+     [java] 	Java虚拟机-默认字符集: GBK
+     [java] 	Java虚拟机-默认时区：中国标准时间(Asia/Shanghai)
+     [java] 	Java虚拟机-默认地区：zh_CN
+     [java] 	Java虚拟机-Zip Alt Encoding: GBK
+     [java] 	Java虚拟机-默认显示语言: 中文
+     [java] 	Java虚拟机-用户当前目录: C:\Users\kombat\Workspaces\11
+     [java] 	Java虚拟机-磁盘空闲空间情况(MB): {C:\=197137, D:\=8544, E:\=0}
+     [java] 
+     [java] 09:55:29,343 INFO [SwordPlatformManager] 开始初始化异常管理组件
+     [java] 09:55:29,452 INFO [SwordPlatformMXBeanManager] 成功注册MBean对象SwordPlatformManager:type=myserver,name=ExceptionManager
+     [java] 09:55:29,456 INFO [SwordPlatformMXBeanManager] 成功注册MBean对象SwordPlatformManager:type=myserver,name=GlobalVariables
+     [java] 09:55:29,460 INFO [SwordPlatformMXBeanManager] 成功注册MBean对象SwordPlatformManager:type=myserver,name=ServerContext
+     [java] 09:55:29,461 INFO [SwordPlatformManager] 开始初始化日志组件
+     [java] 09:55:29,463 INFO [SwordPlatformMXBeanManager] 成功注册MBean对象SwordPlatformManager:type=myserver,name=LogManager
+     [java] 09:55:29,463 INFO [SwordPlatformManager] 开始初始化时间管理组件
+     [java] 09:55:29,464 INFO [SwordPlatformManager] 开始启动本地线程池管理器
+     [java] 09:55:29,468 INFO [SwordPlatformMXBeanManager] 成功注册MBean对象SwordPlatformManager:type=myserver,name=ThreadPoolManager
+     [java] 09:55:29,468 INFO [SwordPlatformManager] 开始初始化数据元管理组件
+     [java] 09:55:29,474 INFO [SwordPlatformManager] 开始初始化本地服务管理组件
+     [java] 09:55:29,481 INFO [SwordServiceManager] 服务代理器生成编译模式:首次调用时
+     [java] 09:55:29,486 INFO [SwordPlatformManager] 开始初始化资源监控组件
+     [java] 09:55:29,489 INFO [SwordPlatformManager] 开始启动类扫描器组件
+     [java] 09:55:29,583 INFO [SwordPlatformMXBeanManager] 成功注册MBean对象SwordPlatformManager:type=myserver,name=ClassManager
+     [java] 09:55:29,599 INFO [SwordClassScanner] 启动并行类扫描器，并行度:8
+     [java] 09:55:29,607 INFO [SwordClassScanner] 线程PlatformClassScaner-2开始扫描C:\Users\kombat\Workspaces\11\.目录
+     [java] 09:55:29,607 INFO [SwordClassScanner] 线程PlatformClassScaner-3开始扫描C:\Program Files\Java\jdk1.8.0_65\lib目录
+     [java] 09:55:29,607 INFO [SwordClassScanner] 线程PlatformClassScaner-1开始扫描C:\Users\kombat\Workspaces\11\config目录
+     [java] 09:55:29,947 DEBUG [AbsSwordPCEngine] 并行计算任务PlatformClassScaner执行完成
+     [java] 09:55:29,949 INFO [SwordClassScanner] 类扫描结束。符合条件的Jar文件数量:0，扫描类总数:0，符合条件类总数:0，被监听器处理的类总数:0，总耗时:0.35466191秒
+     [java] 09:55:29,950 INFO [SwordPlatformManager] 开始初始化已经注册的2个组件
+     [java] 09:55:29,958 INFO [SwordPlatformManager] 开始初始化TimeManagerComponent组件
+     [java] 09:55:29,959 INFO [SwordPlatformMXBeanManager] 成功注册MBean对象SwordPlatformManager:type=myserver,name=TimeManager
+     [java] 09:55:29,959 INFO [SwordPlatformManager] 开始初始化SwordThreadPoolManager组件
+     [java] 09:55:29,960 INFO [SwordPlatformManager] 开始初始化DataElementManagerComponent组件
+     [java] 09:55:29,960 INFO [SwordPlatformManager] 开始初始化ServiceManagerComponent组件
+     [java] 09:55:29,961 INFO [SwordPlatformMXBeanManager] 成功注册MBean对象SwordPlatformManager:type=myserver,name=ServiceManager
+     [java] 09:55:29,962 INFO [SwordPlatformManager] 开始初始化PersistenceComponentManager组件
+     [java] 09:55:29,966 INFO [SwordSQLManager] 开始加载C:\Users\kombat\Workspaces\11\config\sql_pzgl.xml
+     [java] 09:55:29,997 DEBUG [SwordFileUtils] 开始读取文件file:/C:/Users/kombat/Workspaces/11/config/datasource.xml

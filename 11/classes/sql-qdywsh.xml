@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sql-full>
+<!--  -->
+<sql key="hdxt_gy000020_getfwpzbyslswsxdm" sql="select * from cs_gy_qdywshdyfwpz a where a.slswsx_dm = ?" tables="cs_gy_qdywshdyfwpz" />
+<!--  -->
+<sql key="hdxt_gy000011_querybylcslidandtqrq" sql="SELECT *
+  FROM ZH_YSJBXX A
+ WHERE A.LCSLID = ?
+   AND A.TQRQ &gt; TO_DATE(?, 'YYYY-MM-DD') AND A.TQRQ &lt; (TO_DATE(?, 'YYYY-MM-DD') + 1)" tables="ZH_YSJBXX" />
+<!--  -->
+<sql key="hdxt_gy000015_getfwpzbylcswsxdm" sql="select * from cs_gy_qdywshdyfwpz a where a.lcswsx_dm = ?" tables="cs_gy_qdywshdyfwpz" />
+<!--  -->
+<sql key="hdxt_gy000016_getswsxdmbyslswsxdm" sql="select a.swsx_dm,a.swsxmc from dm_gy_swsx a where a.slswsx_dm = ?" tables="dm_gy_swsx" />
+<!--  -->
+<sql key="hdxt_gy000014_queryysjbxxbyconditions" sql="SELECT A.QDYWSHLSH,
+       A.DJXH,
+       A.NSRSBH,
+       A.NSRMC,
+       A.NSRSWJG_DM,
+       A.SLSWSX_DM,
+       A.LCSWSX_DM,
+       A.LCSLID,
+       A.DZBZDSZL_DM,
+       A.TQRQ,
+       A.XTBM,
+       A.XZQHSZ_DM,
+       SL.SLSWSXMC,
+       XX.NSRZT_DM,
+       XX.KZZTDJLX_DM,
+       XX.FJMQYBZ,
+       XX.DJZCLX_DM
+  FROM ZH_YSJBXX A, DM_GY_SLSWSX SL,(select * from DJ_NSRXX where yxbz='Y') XX
+ WHERE A.SLSWSX_DM = SL.SLSWSX_DM
+   AND A.DJXH = XX.DJXH(+)
+   AND (1=? OR A.DJXH = ?)
+   AND (1=? OR A.NSRSWJG_DM IN
+       (SELECT T.SWJG_DM
+                    FROM (SELECT JG.SWJG_DM, JG.SJSWJG_DM
+                            FROM DM_GY_SWJG JG
+                           ) T
+                   START WITH SWJG_DM = ?
+                  CONNECT BY PRIOR SWJG_DM = SJSWJG_DM))
+   AND (1=? OR A.SLSWSX_DM = ?)
+   AND (1=? OR A.SHYJ = ?)
+   AND (1=? OR SL.YWLC_DM = ?)
+   AND (1=? OR A.XZQHSZ_DM = ?)
+   AND (1=? OR SUBSTR(A.SLSWSX_DM,5,3) = ?)" tables="ZH_YSJBXX,DM_GY_SLSWSX,DJ_NSRXX" />
+</sql-full>

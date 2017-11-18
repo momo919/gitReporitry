@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ds-conf>
+	<!-- 
+	<datasource name="test" isJndiDs="true" />
+	 -->
+	<!-- 本地连接池的相关参数参见SwordDataSourceDescriptor类的属性描述 -->
+	<datasource name="SwordDS" driverClassName="oracle.jdbc.OracleDriver"
+		isJndiDs="false" url="jdbc:oracle:thin:@10.23.12.153:1521:HXQZ" user="hx_tools"
+		password="sjzpzz" />
+</ds-conf>
