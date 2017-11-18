@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 by mememmemem
+=======
+Today is a good day.
+hahha .
+>>>>>>> 3a30520ed0f15cde76c31e96d6f1e874efec4fc5
