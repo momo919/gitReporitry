@@ -1,0 +1,56 @@
+09:34:59,684 DEBUG [AuthenticationFilter] SSO认证拦截器拦截到请求，---requestStr:http://yyzx.halt.tax.cn:8101/ajax.sword----requestParam:r=0.37898323543697665&sName=YyBbglCtrl_queryBbList&rUUID=vwH1Q7e59mhNQ6YGPlCEwlFMgDSNhhKV&gwxh=C694A329A05E5871E040007F01001047&gndm=glzx000000000002&zndm=06&gwssswjg=24100000000
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:excludePath：MH002RegisterCtrl_yhcx;requestStr地址是否被拦截：true
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:excludePath的MH002RegisterCtrl_yhcx;requestParam地址是否被拦截：true
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:excludePath：MH001LoginCtrl_queryConfigInfo;requestStr地址是否被拦截：true
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:excludePath的MH001LoginCtrl_queryConfigInfo;requestParam地址是否被拦截：true
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:excludePath：MH001LoginCtrl_handleLogin;requestStr地址是否被拦截：true
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:excludePath的MH001LoginCtrl_handleLogin;requestParam地址是否被拦截：true
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:excludePath：MH003SyGrszCtrl_initSy;requestStr地址是否被拦截：true
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:excludePath的MH003SyGrszCtrl_initSy;requestParam地址是否被拦截：true
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:excludePath：MH007KxtdyCtrl_tcmscsjm;requestStr地址是否被拦截：true
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:excludePath的MH007KxtdyCtrl_tcmscsjm;requestParam地址是否被拦截：true
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:excludePath：MH011DbsyCtrl_dbsyjcInit;requestStr地址是否被拦截：true
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:excludePath的MH011DbsyCtrl_dbsyjcInit;requestParam地址是否被拦截：true
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:excludePath：MH003SyGrszCtrl_initGrsz;requestStr地址是否被拦截：true
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:excludePath的MH003SyGrszCtrl_initGrsz;requestParam地址是否被拦截：true
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:excludePath：MH002RegisterCtrl_alertZc;requestStr地址是否被拦截：true
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:excludePath的MH002RegisterCtrl_alertZc;requestParam地址是否被拦截：true
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:excludePath：MH002RegisterCtrl_Register;requestStr地址是否被拦截：true
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:excludePath的MH002RegisterCtrl_Register;requestParam地址是否被拦截：true
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:excludePath：error_redirect.jsp;requestStr地址是否被拦截：true
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:excludePath的error_redirect.jsp;requestParam地址是否被拦截：true
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:excludePath：error_ajax.jsp;requestStr地址是否被拦截：true
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:excludePath的error_ajax.jsp;requestParam地址是否被拦截：true
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:SSO拦截器获取Cookie中Key值：user:yuandd123
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:SSO拦截器获取Cookie中Key值：SSOTicket:b4e7c144-1fba-4953-931b-a009177d08e3
+09:34:59,684 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:SSO拦截器从Session中获取Ticket：b4e7c144-1fba-4953-931b-a009177d08e3
+09:34:59,684 DEBUG [SSOHttpClient] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:SSO客户端向服务器发起的请求地址为：http://sso.halt.tax.cn:7101/authentication?cmd=checkTicket&SSOTicket=b4e7c144-1fba-4953-931b-a009177d08e3&onlyReadPassState=true
+09:34:59,694 DEBUG [SSOHttpClient] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:SSO客户端获取服务器认证状态为通过
+09:34:59,695 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:SSO拦截器两次认证间隔超出设置值去服务器认证返回状态信息：null
+09:34:59,695 DEBUG [AuthenticationFilter] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:SSO拦截器通过，处理完共耗时：11
+09:34:59,695 DEBUG [Sword] 会话ID:b251bced7847498eaa8ec4ad0a89fe1c:40:1:Begin for Sword Facade...
+09:34:59,695 DEBUG [YyzcptSessionDataMH] 会话ID:36fd04b7992f4144beb8844c13ecb8eb:40:1:创建SwordSession接收的请求:r=0.37898323543697665&sName=YyBbglCtrl_queryBbList&rUUID=vwH1Q7e59mhNQ6YGPlCEwlFMgDSNhhKV&gwxh=C694A329A05E5871E040007F01001047&gndm=glzx000000000002&zndm=06&gwssswjg=24100000000
+09:34:59,695 DEBUG [YyzcptSessionDataMH] 会话ID:36fd04b7992f4144beb8844c13ecb8eb:40:1:创建SwordSession时获取的HttpSession信息：hsessionId: E2C48CED4CE0805CF3D0110C2204C0F8;  swrydm: null;  swryxm: null;  swjgdm: 24100000000;  sjswjgdm: null;  swjgmc: 统一工作平台;  swrysfdm: yykfry0000001;  swrysfmc: 开发人员;  dlzhdm: yuandd123;  dlzhkl: ODk0NkQzODRERjU1REE1OEJGMzM0NDhFMDcxMkNCNTI=;  yhlx: 03;  sfnw: 01;  yhuuid: d6ed5a99051b4e9a8956eb28fc11287e;  islogon: null;  nsrsbh: null;  nsrssswjg: null; gdsgjbz:N; ds_bdxx:; gs_bdxx:null; ds_swrydm:; gs_swrydm:null; gs_swjgdm:null; gs_swjgmc:null; gs_swrysfdm:null; gs_swrysfmc:null; ds_swjgdm:null; ds_swjgmc:null; ds_swrysfdm:null; ds_swrysfmc:null;  yhmc: yuandd123;  nsrdjxh: null; sfgly: null; loginType: 1; isHttps：false
+09:34:59,795 DEBUG [Sword] 会话ID:36fd04b7992f4144beb8844c13ecb8eb:40:1:Request URI:/ajax.sword,本次请求为ajax提交。
+09:34:59,795 DEBUG [SwordDataSet] 会话ID:36fd04b7992f4144beb8844c13ecb8eb:40:1:初始化ReqDataObject。
+09:34:59,795 DEBUG [DataBuilder] 会话ID:36fd04b7992f4144beb8844c13ecb8eb:40:1:DataBuilder:{"tid":"","ctrl":"YyBbglCtrl_queryBbList?sName=YyBbglCtrl_queryBbList&rUUID=vwH1Q7e59mhNQ6YGPlCEwlFMgDSNhhKV&gwxh=C694A329A05E5871E040007F01001047&gndm=glzx000000000002&zndm=06&gwssswjg=24100000000","page":"","data":[{"name":"yyuuid","value":"549f9eb2b07848edadb728e6a1133445","sword":"attr"}],"bindParam":true}
+09:34:59,796 DEBUG [DataBuilder] 会话ID:36fd04b7992f4144beb8844c13ecb8eb:40:1:DataBuilder.fillAttrBean:{name=yyuuid, value=549f9eb2b07848edadb728e6a1133445, sword=attr}
+09:34:59,796 DEBUG [SwordDataSet] 会话ID:36fd04b7992f4144beb8844c13ecb8eb:40:1:初始化ResDataObject。
+09:34:59,797 DEBUG [YyBbglService] 会话ID:36fd04b7992f4144beb8844c13ecb8eb:40:1:开始调用服务容器com.css.sword.yyzx.service.yygl.bbgl.YyBbglService的yyzx_bbgl_queryBbxxListByYyUuid服务
+09:34:59,799 DEBUG [DBTracer] 会话ID:36fd04b7992f4144beb8844c13ecb8eb:40:1:开始调用数据源sworddev执行请求:yyzx_yyjbxx_queryByYyUuid:SQL语句:select * from YY_YYJBXX where yyuuid=? and yxbz='Y'
+调用参数:[549f9eb2b07848edadb728e6a1133445]，请求ID:6a2205ab
+09:34:59,830 DEBUG [DBTracer] 会话ID:36fd04b7992f4144beb8844c13ecb8eb:40:1:成功执行请求6a2205ab，执行时间(ms):31，结果集记录数:1条
+09:34:59,833 DEBUG [DBTracer] 会话ID:36fd04b7992f4144beb8844c13ecb8eb:40:1:开始调用数据源sworddev执行请求:yyzx_yybbxx_queryAllByYyUuid:SQL语句:select t.* from YY_BBXX t where t.yyuuid=? order by t.version desc
+调用参数:[549f9eb2b07848edadb728e6a1133445]，请求ID:789cff3b
+09:34:59,849 DEBUG [DBTracer] 会话ID:36fd04b7992f4144beb8844c13ecb8eb:40:1:成功执行请求789cff3b，执行时间(ms):17，结果集记录数:1条
+09:34:59,853 DEBUG [DBTracer] 会话ID:36fd04b7992f4144beb8844c13ecb8eb:40:1:开始调用数据源sworddev执行请求:yyzx_yysh_queryByYyBbUuid:SQL语句:select * from yy_shxx where yybbuuid = ? order by sprq desc, sqrq desc
+调用参数:[84db34d765334b098a0aaf3f6cbaaa57]，请求ID:d231389
+09:34:59,866 DEBUG [DBTracer] 会话ID:36fd04b7992f4144beb8844c13ecb8eb:40:1:成功执行请求d231389，执行时间(ms):13，结果集记录数:0条
+09:34:59,869 DEBUG [YhzxExtendService] 会话ID:36fd04b7992f4144beb8844c13ecb8eb:40:1:开始调用服务容器com.css.sword.yhzx.service.extend.YhzxExtendService的yyzc_yhzx_extend_queryYhxxByYhuuid服务
+09:34:59,871 DEBUG [DBTracer] 会话ID:36fd04b7992f4144beb8844c13ecb8eb:40:1:开始调用数据源sworddev执行请求:yhzx_comm_queryYhxxByYhuuid:SQL语句:select *   from yh_dlzhxx t  where t.yhuuid = ?    and t.yxbz = 'Y'    and t.zhyxsjq < ?    and t.zhyxsjz > ?
+调用参数:[d6ed5a99051b4e9a8956eb28fc11287e, Fri Nov 17 09:34:59 CST 2017, Fri Nov 17 09:34:59 CST 2017]，请求ID:17237c35
+09:34:59,901 DEBUG [DBTracer] 会话ID:36fd04b7992f4144beb8844c13ecb8eb:40:1:成功执行请求17237c35，执行时间(ms):31，结果集记录数:0条
+09:34:59,903 DEBUG [SwordDataSet] 会话ID:36fd04b7992f4144beb8844c13ecb8eb:40:1:初始化ResDataObject。
+09:34:59,905 DEBUG [Sword] 会话ID:36fd04b7992f4144beb8844c13ecb8eb:40:1:本次请求的rUUID为: vwH1Q7e59mhNQ6YGPlCEwlFMgDSNhhKV,ctrl为: YyBbglCtrl的执行时间为：109
+09:34:59,905 DEBUG [DataBuilder] 会话ID:36fd04b7992f4144beb8844c13ecb8eb:40:1:JsonString:{"data":[{"trs":[{"status":null,"tds":{"xxsj":{"value":""},"memo":{"value":""},"yymc":{"value":"???"},"azcs":{"value":"0"},"score":{"value":"0.0"},"pjcs":{"value":"0"},"lrr":{"value":"d6ed5a99051b4e9a8956eb28fc11287e"},"version":{"value":"1"},"cjrq":{"value":"2017-11-16 16:24:28.0"},"yyms":{"value":""},"yhdlzh":{"value":""},"shr":{"value":""},"imagepath":{"value":""},"xgr":{"value":""},"sxsj":{"value":""},"xgsj":{"value":""},"yhuuid":{"value":""},"yyfbzt":{"value":"01"},"yyzdlx":{"value":""},"uuid":{"value":"84db34d765334b098a0aaf3f6cbaaa57"},"spsj":{"value":""},"yylx":{"value":""},"yyuuid":{"value":"549f9eb2b07848edadb728e6a1133445"}}}],"name":"yybbList","sword":"SwordGrid"}]}
+09:34:59,906 DEBUG [Sword] 会话ID:ead11068950f40e5bdd03ad469a45d33:40:1:End for Sword Facade...
