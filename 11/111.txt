@@ -4,4 +4,10 @@ by mememmemem
 Today is a good day.
 hahha .
 
+<<<<<<< HEAD
 zhujia1 01010101010
+=======
+
+
+zhuijia 03030003030003030
+>>>>>>> master
